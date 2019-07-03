@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: String </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "String.constructor : " );
+                console.log(  String.constructor );
+                console.log( "" );
+
+                console.log( "String.prototype : " );
+                console.log(  String.prototype );
+                console.log( "" );
+
+                console.log( "String.prototype.constructor : " );
+                console.log(  String.prototype.constructor );
+                console.log( "" );
+
+
+                let x = new String( "hello" );
+                console.log( x );
+                console.log( typeof( x ) );
+
+                console.log( x.__proto__ );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

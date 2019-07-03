@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+
+        <h5>使用POST方式提交表单</h5>
+        <form action="/param" method="post" >
+            <input type="text" name="username" placeholder="用户名"> <br>
+            <input type="password" name="password" placeholder="密码"> <br>
+            性别:
+            <input type="radio" name="gender" value="M"> 男
+            <input type="radio" name="gender" value="F"> 女 <br>
+            爱好:
+            <input type="checkbox" name="hobby" value="eat"> 吃
+            <input type="checkbox" name="hobby" value="eat-ji"> 吃鸡
+            <input type="checkbox" name="hobby" value="sleep"> 睡觉
+            <br>
+            <input type="submit" value="提交">
+        </form>
+
+        <hr>
+
+
+        <h5>使用GET方式提交表单</h5>
+        <form action="/param" method="get" >
+            <input type="text" name="username" placeholder="用户名"> <br>
+            <input type="password" name="password" placeholder="密码"> <br>
+            性别:
+            <input type="radio" name="gender" value="M"> 男
+            <input type="radio" name="gender" value="F"> 女 <br>
+            爱好:
+            <input type="checkbox" name="hobby" value="eat"> 吃
+            <input type="checkbox" name="hobby" value="eat-ji"> 吃鸡
+            <input type="checkbox" name="hobby" value="sleep"> 睡觉
+            <br>
+            <input type="submit" value="提交">
+        </form>
+
+        <hr>
+
+        <a href="/param?username=zhangsanfeng&password=hello&gender=M">点击链接访问</a>
+        <a href="/param?username=zhangsanfeng&password=hello&gender=M&hobby=eat&hobby=eat-ji">点击链接访问</a>
+
+    </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM </title>
+        <style type="text/css">
+            .wrapper { margin: 30px ; border: 1px solid #dedede ;  padding: 30px ; }
+            .tab { border: 1px solid blue ; width: 100% ; margin: 30px auto ;  }
+            .tab td { border: 1px solid blue ; height: 30px ; }
+        </style>
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <table id="first-table" class="tab hello" cellspacing="5px" cellpadding="5px">
+                <!-- 表格头 -->
+                <thead>
+                    <tr>
+                        <th>姓名</th>   <th>性别</th>   <th>生日</th>
+                    </tr>
+                </thead>
+                <!-- 表格身体 -->
+                <tbody>
+                    <tr>
+                        <td>张三丰</td>   <td>男</td>   <td>5月8日</td>
+                    </tr>
+                    <tr>
+                        <td>张翠山</td>   <td>男</td>   <td>5月20日</td>
+                    </tr>
+                </tbody>
+                <!-- 表格脚 -->
+                <tfoot>
+                    <tr>
+                        <td></td>   <td></td>   <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <table id="second-table" class="tab">
+                <tbody>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( () => {
+
+            let t = document.querySelector( ".tab" );
+
+            if( t.hasAttributes() ) {
+                let attrs = t.attributes ;
+                console.log( attrs.constructor.name  ); // NamedNodeMap
+                console.log( "" );
+                let array = Array.from( attrs );
+                // 数组中所包含的每个数组元素都是 属性(Attr) 类型
+                array.forEach( e => console.log( e.constructor.name , e.nodeType , e.nodeName , e.nodeValue ) );
+            }
+
+            console.log( "" );
+
+            if( t.hasAttributes() ) {
+                let names = t.getAttributeNames(); // 获得所有的属性的名称组成的数组实例
+                console.log( names );
+                // 通过 数组原型中定义的 forEach 来遍历数组
+                names.forEach( name => {
+                    // 根据属性名称获取属性节点
+                    let attrNode = t.getAttributeNode( name ) ;
+                    console.log( attrNode.constructor.name , attrNode.nodeType , attrNode.nodeName , attrNode.nodeValue );
+                });
+            }
+
+            console.log( "" );
+
+            // 判断是否有子节点
+            if( t.hasChildNodes() ) {
+                let childs = t.childNodes ; // 获取所有的子节点( 包括 空文本、子元素、注释 )
+                console.log( childs.constructor.name  );
+                let array = Array.from( childs );
+                array.forEach( e => console.log( e.constructor.name , e.nodeType , e.nodeName , e.nodeValue ) );
+            }
+
+            console.log( "" );
+
+            // 判断是否存在子元素
+            if( t.childElementCount > 1 ) { // 从内部的 while 循环来看，可以省略这个判断
+                // 获得第一个子元素
+                let element = t.firstElementChild ;
+                while( element ) {
+                    console.log(element.constructor.name, element.nodeType, element.nodeName, element.nodeValue);
+                    element = element.nextElementSibling ;
+                }
+            }
+
+            console.log( "" );
+
+            // 从 t 元素内部选择匹配于 指定选择器 的那些元素组成的 列表
+            let list = t.querySelectorAll( "table>*" );
+            console.log( list );
+            Array.from( list ).forEach( e => console.log( e.nodeType, e.nodeName ) );
+            console.log( "" );
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+            // 从整个 HTML 文档中选择所有 匹配于 指定选择器 的那些元素组成的 列表
+            let x = document.querySelectorAll( "table>*" );
+            console.log( x );
+            Array.from( x ).forEach( e => console.log( e.nodeType, e.nodeName ) );
+            console.log( "" );
+
+        })();
+    </script>
+</html>

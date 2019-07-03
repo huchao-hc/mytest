@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Function </title>
+
+        <script type="text/javascript">
+            ( ()=>{
+
+                function show() {
+                    console.log( "this => " , this );
+                    console.log( "this.name => "  , this.name );
+                    console.log( "typeof(name) : " , typeof( this.name ) );
+                    console.log( "" );
+                }
+
+                let o = { id : 1001 , name : "石榴姐" , gender : "女" };
+
+                let x = show.bind( o );
+
+                console.dir( x );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                console.log( x === show ) ;
+
+                x(); // 此时 x 函数内部的 this 表示 o 对应的实例
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: window</title>
+        <style type="text/css">
+            .wrapper {
+                width: 90% ;
+                margin: 15px auto ;
+                border: 1px solid blue ;
+            }
+            .wrapper>div {
+                margin: 15px ;
+                border: 1px solid #dedede ;
+                padding: 15px ;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="wrapper"></div>
+
+    </body>
+
+    <script type="text/javascript" >
+        ( function () {
+
+            // 使用 CSS 选择器 选择页面上匹配于指定选择器的首个元素
+            let wrapper = document.querySelector( ".wrapper" );
+            // wrapper 如果存在即为 true
+            if( wrapper ) {
+                for (let x in window) {
+                    console.log( x , typeof (window[x] ) );
+                    let div = document.createElement( "div" ); // 在 内存中创建一个 div 元素
+                    div.innerHTML = x + " : " + typeof( window[ x ] );
+                    wrapper.appendChild( div ); // 将新创建的 div 元素 添加到 wrapper 元素内部的末尾
+                }
+            }
+
+        })();
+    </script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>删除元素</title>
+
+        <style type="text/css">
+            .buttons { overflow: hidden ; }
+            .buttons>a {
+                float: left ;
+                border-radius: 5px ;
+                padding: 10px ;
+                background: #0956e3;
+                color: yellow ;
+                text-decoration: none ;
+                margin-right: 15px ;
+            }
+            .buttons>a:hover { background: #1242bc; }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="buttons">
+            <a href="http://www.ecut.edu.cn">删除最后一个节点</a>
+            <a href="http://www.ecut.edu.cn">清空最后一个节点</a>
+        </div>
+
+        <ul>
+            <li>藜蒿炒腊肉</li>
+            <li>小鸡炖蘑菇</li>
+            <li>宝塔镇河妖</li>
+            <li>天王盖地虎</li>
+        </ul>
+
+    </body>
+
+    <script type="text/javascript">
+        ( ()=>{
+
+            let removeButton = document.querySelector( ".buttons a:first-child" );
+
+            let fn = function( event ){
+                event.preventDefault(); // 阻止事件的默认行为
+                console.log( event );
+
+                let ul = document.querySelector( "ul" );
+                if( ul ) {
+                    if( ul.childElementCount >= 1 ) {
+                        let last = ul.lastElementChild;
+                        ul.removeChild( last );
+                    }
+                }
+
+            };
+
+            removeButton.addEventListener( "click" , fn , false  );
+
+            let emptyButton = document.querySelector( ".buttons a:last-child" );
+            emptyButton.addEventListener( "click" , event => {
+                event.preventDefault(); // 阻止事件的默认行为
+                let ul = document.querySelector( "ul" );
+                if( ul ) {
+                    if( ul.childElementCount >= 1 ) {
+                        let last = ul.lastElementChild;
+                        last.innerHTML = "" ;
+                    }
+                }
+            } , false );
+
+        } )();
+    </script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>全局函数</title>
+
+        <script type="text/javascript">
+
+            let s = "100101" ;
+            console.log( "s = " , s , " type = " , typeof( s ) );
+
+            let n = parseInt( s );
+            console.log( "n = " , n , " type = " , typeof( n ) );
+
+            n = parseInt( s , 10 ); // 将 字符串 s 按照 十进制 进行解析
+            console.log( "n = " , n , " type = " , typeof( n ) );
+
+            n = parseInt( s , 2 );
+            console.log( "n = " , n , " type = " , typeof( n ) );
+
+            n = parseInt( s , 36 );
+            console.log( "n = " , n , " type = " , typeof( n ) );
+
+            s = "ZZ" ;
+            n = parseInt( s , 36 );
+            console.log( "n = " , n , " type = " , typeof( n ) );
+
+            let sf = "3.14" ;
+            console.log( "sf = " , sf , " type = " , typeof( sf ) );
+            let f = parseFloat( sf );
+            console.log( "f = " , f , " type = " , typeof( f ) );
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>上传文件</title>
+    </head>
+    <body>
+
+        <form action="/single/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="upfile" >
+            <input type="submit" value="上传">
+        </form>
+
+        <hr>
+
+        <form  action="/multiple/upload" method="post" enctype="multipart/form-data">
+            <p>  <input type="file" name="upfile" > </p>
+            <button type="button" >添加文件</button>
+            <input type="submit" value="上传文件" >
+        </form>
+
+        <script type="text/javascript">
+            // 根据指定的CSS选择器选择匹配于选择器的第一个元素
+            var btn = document.querySelector( "button[type=button]" );
+            // 如果 btn 对应的元素是确切存在的，则 if 中的判断返回 true
+            if( btn ) {
+
+                // 声明一个变量，用来保存事件监听器 ( 就是一个函数 )
+                var listener = function(){
+                    console.log(  this ,  "被点击了" );
+
+                    var parent = this.parentNode ; // 获得当前被点击元素的父元素
+
+                    var p = document.createElement( "p" );
+
+                    var input = document.createElement( "input" );
+                    input.setAttribute( "type" , "file"  );
+                    input.setAttribute( "name" , "upfile"  );
+
+                    p.appendChild( input ) ; // 将 input 添加到新创建的 p 元素中
+
+                    // 在 parent 元素内部的 this 元素之前插入 p 元素
+                    parent.insertBefore( p  , this ) ;
+
+                };
+
+                // 为 btn 对应的按钮绑定 点击事件 ( click ) 对应的事件监听器 ( function )
+                btn.addEventListener( "click" , listener , false );
+            }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: history </title>
+
+        <style type="text/css" >
+            body { margin: 0px ; padding: 0px ; }
+            .wrapper { border: 1px solid blue ; margin: 15px ; }
+            .wrapper>button {
+                margin: 15px 0px 15px 15px ;
+                border: 1px solid #dedede ;
+                outline: none ;
+                background: #efefef ;
+                font-size: 20px ;
+            }
+            .wrapper>button:hover { background: yellow ; }
+
+            .wrapper .first { color: blue ; }
+            .wrapper .second { color: green ; }
+            .wrapper .third { color: red ; }
+            .wrapper .fourth { color: darkorange ; }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="wrapper">
+            <button type="button" class="first">go(-2)</button>
+            <button type="button" class="second">back</button>
+            <button type="button" class="third">forward</button>
+            <button type="button" class="fourth">go(2)</button>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" >
+        ( function () {
+
+            for( let x in history ) {
+                console.log( x , history[ x ] ) ;
+            }
+
+            let firstButton = document.querySelector( ".wrapper .first" );
+            firstButton.addEventListener( "click" , () => history.go( -2 ) , false );
+
+            let secondButton = document.querySelector( ".wrapper .second" );
+            secondButton.addEventListener( "click" , () => history.back() , false );
+
+            let thirdButton = document.querySelector( ".wrapper .third" );
+            thirdButton.addEventListener( "click" , () => history.forward() , false );
+
+            let fourthButton = document.querySelector( ".wrapper .fourth" );
+            fourthButton.addEventListener( "click" , () => history.go( 2 ) , false );
+
+        })();
+    </script>
+</html>

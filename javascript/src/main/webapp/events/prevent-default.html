@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>阻止事件的默认行为</title>
+    </head>
+    <body>
+
+        <p>对于超链接来说，点击事件默认的行为方式是在目标窗口中打开链接的资源</p>
+
+        <a href="http://www.ecut.edu.cn" target="_blank">打开某某理工官网</a>
+
+        <script type="text/javascript">
+            ( () => {
+                let link = document.querySelector( "a" );
+                link.addEventListener( "click" ,  (e) => { e.preventDefault(); console.log( link.href ) }  , false);
+            } )();
+        </script>
+
+    </body>
+</html>

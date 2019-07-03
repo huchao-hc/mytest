@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>全局属性</title>
+
+        <script type="text/javascript">
+            // 直接书写在 script 元素内部的代码属于全局代码
+            var username = "张三丰" ;
+            // 在全局代码中声明的 变量 将属于全局对象，此时就说这个变量是个自定义的全局属性
+            var password = "hellowudang" ;
+            // 此时就说 username 和 password 变量污染了全局对象
+
+            console.log( "username = " , username );
+            console.log( "password = " , password );
+
+            console.log( " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+
+            console.log( "this.username = " , this.username );
+            console.log( "this.password = " , this.password );
+
+            console.log( " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+
+            console.log( "window.username = " , window.username );
+            console.log( "window.password = " , window.password );
+
+            console.log( " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+            console.log( "" );
+
+            console.log( "~ ~ ~ 全局属性 ~ ~ ~" );
+            console.log( "Infinity : " , Infinity );
+            console.log( "this.Infinity : " , this.Infinity );
+            console.log( "window.Infinity : " , window.Infinity );
+
+            console.log( "Not a Number : " , NaN );
+
+            console.log( "undefined : " , window.undefined );
+
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

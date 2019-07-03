@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>"重载"</title>
+        
+        <script type="text/javascript" >
+            ( function () {
+                
+                function Monkey () {
+
+                    this.add = function () {
+                        if( arguments.length == 2 ){
+                            // 当 add 接受两个实参时 ，如果两个实参都是数字类型时的处理方式
+                            if( typeof( arguments[ 0 ] ) === "number" &&  typeof( arguments[ 1 ] ) === "number"  ){
+                                return arguments[ 0 ] + arguments[ 1 ] ;
+                            } else if ( typeof( arguments[ 0 ] ) === "string" &&  typeof( arguments[ 1 ] ) === "string" ){
+                                return arguments[ 0 ] + "," + arguments[ 1 ] ;
+                            } else {
+                                throw new Error( "没有这种重载形式" );
+                            }
+                        }
+
+                        if( arguments.length === 3 ){
+                            if( typeof( arguments[ 0 ] ) === "number" &&
+                                 typeof( arguments[ 1 ] ) === "number" && typeof( arguments[ 2 ] ) === "number" ){
+                                return arguments[ 0 ] + arguments[ 1 ] + arguments[ 2 ] ;
+                            }
+                            throw new Error( "没有这种重载形式" );
+                        }
+                    }
+
+                }
+
+                let m = new Monkey();
+
+                console.log( m.add( 100 , 200 ) );
+
+                console.log( m.add( 100 , 200 , 300 ) );
+
+                console.log( m.add( "hello" , "world" ) );
+
+                
+            } )();
+        </script>
+        
+    </head>
+    <body>
+    
+        <div>
+            面向对象编程三<b style="font-size: 200px;">大</b>特征之"封装"
+        </div>
+    
+    </body>
+</html>

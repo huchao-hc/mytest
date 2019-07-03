@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style type="text/css" >
+            .wrapper {
+                margin: 30px auto ;
+                border: 1px solid blue ;
+                width: 80% ;
+                height: 100px ;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <!-- 第一种方式 -->
+        <div class="wrapper" onclick="X.click()" onmouseout="X.out()" onmouseover="X.over()"></div>
+
+        <div class="wrapper second" ></div>
+
+        <div class="wrapper third"></div>
+
+        <script type="text/javascript" >
+            ( ( w ) => {
+
+                w.X = {
+                    click : function() {
+                        console.log("click");
+                    } ,
+                    out : function() {
+                        console.log("out");
+                    } ,
+                    over : function() {
+                        console.log("over");
+                    }
+                };
+
+                // 第二种方式
+                let second = document.querySelector( ".second" );
+                second.onmouseout = () => { console.log( "second : out" ) };
+                second.onmouseover = () => { console.log( "second : over" ) };
+                second.onclick = () => { console.log( "second : click" ) };
+
+
+                // 第三种方式
+                let last = document.querySelector( ".third" );
+                last.addEventListener( "mouseover" , ()=>{ console.log( "last : over " ) ; } , false );
+                last.addEventListener( "mouseout" , ()=>{ console.log( "last : out " ) ; } , false );
+                last.addEventListener( "click" , ()=>{ console.log( "last : click " ) ; } , false );
+
+            } )( window );
+
+        </script>
+
+    </body>
+</html>

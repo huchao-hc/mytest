@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- 使用 元标记 可以告知浏览器使用哪种编码处理当前页面 -->
+        <meta charset="UTF-8">
+        <title>全局函数</title>
+
+        <script type="text/javascript">
+            // 直接书写在 script 元素内部的代码属于全局代码
+            function hello () {
+                console.log( "hello" );
+            }
+            // 在全局代码中声明的 函数 将属于全局对象，此时就说这个变量是个自定义的全局函数
+            hello();
+            // 此时就说 add 函数污染了全局对象
+            this.hello();
+            window.hello();
+
+            console.log( " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+
+            const url = "http://www.baidu.com/s?w=张三丰" ;
+            console.log( "url : " , url );
+
+            let encodedUrl = encodeURI( url );
+            console.log( "encoded url : " , encodedUrl );
+
+            let decodedUrl = decodeURI( encodedUrl );
+            console.log( "decoded url : " , decodedUrl );
+
+            console.log( " ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+
+            encodedUrl = encodeURIComponent( url );
+            console.log( "encoded url : " , encodedUrl );
+
+            decodedUrl = decodeURIComponent( encodedUrl );
+            console.log( "decoded url : " , decodedUrl );
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+            console.log( "" );
+
+            console.log( "被废弃的方法" );
+            let username = "张翠山zhangcuishan" ;
+            console.log( "name : " , username );
+
+            let es = escape( username );
+            console.log( "escape : " , es );
+
+            let unes = unescape( es );
+            console.log( "unescape : " , unes );
+
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

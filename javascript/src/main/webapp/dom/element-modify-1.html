@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>修改元素</title>
+
+        <style type="text/css" >
+            .wrapper { width: 80% ; margin: 30px auto ; border: 5px solid gray;   }
+            .wrapper>div { height: 100px ; margin: 15px ; border: 5px solid #c6c6c6 ; background: #efefef ; }
+            /* 注意这里的 hover 表示一个普通的 className ，而不是伪类选择器 */
+            .wrapper  .hover {
+                background: yellow ;
+                border-color: #ff8c00 ;
+                text-align: center ;
+                font-size: 50px ;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper first" >
+            <div>first</div>
+        </div>
+
+        <div class="wrapper second" >
+            <div>second</div>
+        </div>
+
+        <div class="wrapper third" >
+            <div>third</div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" >
+        ( ()=>{
+
+            let list = document.querySelectorAll( ".wrapper>div" );
+
+            let array = Array.from( list );
+
+            array.forEach( e => {
+
+                // mouseover 是一种事件类型，表示鼠标悬浮到元素上
+                e.addEventListener( "mouseover" , () => {
+                    let classes = e.classList; // 获取 e 元素的class属性中指定的所有的 class 名称组成的列表( DOMTokenList )
+                    console.log( classes );
+                    classes.add( "hover" ); // 通过 add 函数可以在指定的 class 名称列表中添加新的 class 名称
+                } , false );
+
+                // mouseout 是一种事件类型，表示鼠标从悬浮的元素上移走
+                e.addEventListener( "mouseout" , () => {
+                    let classes = e.classList;
+                    classes.remove( "hover" ); // 通过 remove  函数可以在指定的 class 名称列表中添加新的 class 名称
+                } , false );
+
+            });
+
+            /* ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ */
+
+            let wrappers = document.querySelectorAll( ".wrapper" );
+            Array.from( wrappers ).forEach( (e) => {
+
+                // mouseover 是一种事件类型，表示鼠标悬浮到元素上
+                e.addEventListener( "mouseover" , () => {
+                    e.style.borderColor = "blue" ;  // 设置某个元素的单个CSS属性值
+                    e.style.borderWidth = "10px" ;
+                } , false );
+
+                // mouseout 是一种事件类型，表示鼠标从悬浮的元素上移走
+                e.addEventListener( "mouseout" , () => {
+                    e.style.borderColor = "gray" ; // 设置某个元素的单个CSS属性值
+                    e.style.borderWidth = "5px" ;
+                } , false );
+
+            } ) ;
+
+
+
+        } )();
+    </script>
+</html>

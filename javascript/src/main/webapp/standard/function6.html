@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Function </title>
+
+        <script type="text/javascript">
+            ( ()=>{
+
+                function show() {
+                    console.log( "this => " , this );
+                    console.log( "this.name => "  , this.name );
+                    console.log( "typeof(name) : " , typeof( this.name ) );
+                    console.log( "" );
+                }
+
+                show(); // 此时在 show 函数内部，this 指向 全局对象 ( 客户端JavaScript就是window)
+
+                let s = { id : 1001 , name : "张三丰" };
+
+                // 通过 函数实例 的 call 方法来调用 函数并为其指定 this 对应的实例
+                show.call( s ); // 对于 Java 语言来说相当于 s.show()
+
+                let c = { name : "Tom" , gender : "男" , age : 50  };
+
+                show.call( c ); // 对于 Java 语言来说相当于 c.show()
+
+                function add( a , b ) {
+                    console.log( this.name + " 正在计算 " + a + " + " +  b + " 的和");
+                    let c = a + b ;
+                    return c ;
+                }
+
+                add( 100 , 200 ); // 此时在 add 函数内部，this 指向 全局对象 ( 客户端JavaScript就是window)
+
+                // functionReference.call( thisReference [ , ....args] )
+                add.call( c , 100 , 200 ); // 此时在 add 函数内部，this 指向 c 对应的实例
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

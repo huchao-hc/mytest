@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>提交字节数据</title>
+
+        <link rel="stylesheet" href="/styles/cells.css">
+        <style type="text/css">
+
+            .wrapper { width: 80% ; margin: 30px auto ;  box-shadow: 0 0 5px 4px #dedede ;   border-radius: 5px ; }
+
+            .wrapper>* { margin: 15px ; }
+
+            .wrapper s ,
+            .wrapper b { text-decoration: none ; font-weight: normal ; font-style: normal ; }
+
+            .wrapper>div { border-top: 1px solid #dedede ; border-bottom: 1px solid #dedede ; line-height: 50px ; }
+
+            .wrapper>form {   }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <i class="x-boundary"></i>
+            <u class="x-row">
+                <s class="x-cell-2">method="get"</s>
+                <b class="x-cell-10">enctype="any one"</b>
+            </u>
+            <div></div>
+            <form action="/parse/request" method="get" enctype="text/css">
+                <input type="text" name="username" placeholder="User Name">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="提交">
+            </form>
+            <s class="x-boundary"></s>
+        </div>
+
+        <div class="wrapper">
+            <b class="x-boundary"></b>
+            <u class="x-row">
+                <s class="x-cell-2">method="post"</s>
+                <b class="x-cell-10">enctype="application/x-www-form-urlencoded"</b>
+            </u>
+            <div>
+                当 表单的 enctype 属性取值为 "application/x-www-form-urlencoded" ( 也是默认值 ) ，并且采用 post 方式提交表单时，<br>
+                则 在发送前对所有字符进行编码 ( 将空格转换为 "+" 符号，特殊字符转换为 ASCII HEX 值 )
+            </div>
+            <form action="/parse/request" method="post" enctype="application/x-www-form-urlencoded">
+                <input type="text" name="username" placeholder="User Name">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="提交">
+            </form>
+            <i class="x-boundary"></i>
+        </div>
+
+        <div class="wrapper">
+            <u class="x-boundary"></u>
+            <u class="x-row">
+                <s class="x-cell-2">method="post"</s>
+                <b class="x-cell-10"></b>
+            </u>
+            <div>
+                当 表单的 enctype 属性取值为 "text/plain" ，并且采用 post 方式提交表单时，<br>
+                表单中的所有的控件都以key=value形式传递给服务器，并且以纯文本形式发送(不会编码特殊字符)、每个key=value独占一行
+            </div>
+            <form action="/parse/request" method="post" enctype="text/plain">
+                <input type="text" name="username" placeholder="User Name">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="提交">
+            </form>
+            <p class="x-boundary"></p>
+        </div>
+
+
+        <div class="wrapper">
+            <s class="x-boundary"></s>
+            <u class="x-row">
+                <s class="x-cell-2">method="post"</s>
+                <b class="x-cell-10">enctype="multipart/form-data"</b>
+            </u>
+            <div>
+                当 表单的 enctype 属性取值为 "multipart/form-data" ，并且采用 post 方式提交表单时，
+                表单中的每个控件都是当前表单对应的消息的一部分
+            </div>
+            <form action="/parse/request" method="post" enctype="multipart/form-data">
+                <input type="text" name="username" placeholder="User Name">
+                <input type="password" name="password" placeholder="Password">
+                <input type="submit" value="提交">
+            </form>
+            <b class="x-boundary"></b>
+        </div>
+
+
+        <hr style="margin: 30px auto ;">
+
+        <div class="wrapper">
+            <s class="x-boundary"></s>
+            <div>
+                如果需要通过表单提交字节数据给服务器，则必须指定 method 为 "post" 、enctype 为 multipart/form-data
+            </div>
+            <form action="/parse/binary" method="post" enctype="multipart/form-data" >
+                <input type="text" name="suibian" placeholder="随便">
+                <!-- 如果要将文件中的数据通过请求发送给服务器，必须提供 文件选择控件 ( 文件选择器 ) -->
+                <input type="file" name="upfile">
+                <input type="submit" value="提交">
+            </form>
+            <b class="x-boundary"></b>
+        </div>
+
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM </title>
+        <style type="text/css">
+            .wrapper { margin: 30px ; border: 1px solid #dedede ;  padding: 30px ; }
+            .tab { border: 1px solid blue ; width: 100% ;  }
+            .tab td { border: 1px solid blue ; height: 30px ; }
+        </style>
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <table id="first-table" class="tab hello" cellspacing="5px" cellpadding="5px">
+                <tr>
+                    <td></td>   <td></td>   <td></td>
+                </tr>
+                <tr>
+                    <td></td>   <td></td>   <td></td>
+                </tr>
+                <tr>
+                    <td></td>   <td></td>   <td></td>
+                </tr>
+                <tr>
+                    <td></td>   <td></td>   <td></td>
+                </tr>
+            </table>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( () => {
+
+            let t = document.querySelector( ".tab" );
+            console.log( t.constructor ); // 获取 构造函数 ( 就是获取对象(class) )
+            console.log( t.__proto__ );
+            console.log( t.constructor.prototype ); // 通过对象(class)来获取其原型
+
+        })();
+    </script>
+</html>

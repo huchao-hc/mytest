@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX</title>
+    </head>
+    <body>
+
+
+        <div class="buttons">
+            <button type="button">获取数据</button>
+        </div>
+
+        <div class="data">
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( ()=>{
+
+            const btn = document.querySelector( "button[type=button]" );
+            const method = "post" ;
+            const url = "/get/student" ;
+
+            let listener = (e) => {
+                e.preventDefault();
+
+                // 1、创建 XMLHttpRequest 对象
+                let $http = new XMLHttpRequest();
+
+                /* 2、绑定各种事件对应的事件监听器 */
+                // $http.readyState : 0 --->  1
+                $http.addEventListener( "loadstart" , ()=>{ console.log( "loadstart : " , $http.readyState , $http.OPENED ) ; } , false );
+                // $http.readyState : 1 ---> 2
+                $http.addEventListener( "readystatechange" , ()=>{
+                    if( $http.readyState === $http.HEADERS_RECEIVED ) {
+                        console.log( "headers received : " , $http.readyState , $http.HEADERS_RECEIVED ) ;
+                        let headers = $http.getAllResponseHeaders();
+                        console.log( headers );
+                        console.log( $http.status , $http.statusText );
+                    }
+                } , false );
+                // $http.readyState : 2 ---> 3
+                $http.addEventListener( "progress" , ()=>{ console.log( "progress : " , $http.readyState , $http.LOADING ) ; } , false );
+                // $http.readyState : 3 ---> 4
+                // load 事件表示 客户端请求结束并且已经完全接受到服务器返回的响应数据 ( 用 $http.DONE 表示)
+                $http.addEventListener( "load" , ()=> { console.log( "load : " , $http.readyState , $http.DONE ) ;  }, false );
+                $http.addEventListener( "loadend" , ()=>{ console.log( "loadend : " , $http.readyState ) ; } , false );
+                $http.timeout = 11000 ;// 以毫秒为单位
+                $http.addEventListener( "timeout" , ()=>{ console.log( "timeout : " , $http.readyState ) ; } , false );
+
+                $http.addEventListener( "error" , ()=>{ console.log( "error : " , $http.readyState ) ; } , false );
+
+                // 3、打开连接
+                $http.open( method , url );
+
+                // 5、发送请求
+                $http.send( null );
+
+            };
+
+            btn.addEventListener( "click" , listener , false  );
+
+        })();
+    </script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style type="text/css" >
+            .wrapper {
+                margin: 30px auto ;
+                border: 1px solid blue ;
+                width: 80% ;
+                height: 100px ;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper">First</div>
+
+        <div class="wrapper" >Second</div>
+
+        <div class="wrapper">Third</div>
+
+        <script type="text/javascript" >
+            ( () => {
+
+                let wrapperList = document.querySelectorAll( ".wrapper" );
+
+                let listener = (e) => {
+                    console.log( e );
+                    console.log( e.target ) ; // 事件源(事件在哪里发生的)
+                    console.log( e.type ) ; // 事件类型 (发生什么事)
+                }
+
+                let fn = ( e , i , a )=>{
+                    // console.log( i , e , a );
+
+                    e.addEventListener( "click" , listener , false );
+                }
+                Array.from( wrapperList ) .forEach( fn ) ;
+
+            } )( window );
+
+        </script>
+
+    </body>
+</html>

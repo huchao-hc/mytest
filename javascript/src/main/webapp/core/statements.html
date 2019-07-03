@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <script type="text/javascript">
+
+            for( let i = 0 ; i < 10 ; i++ ){
+                console.log( i );
+            }
+
+            let x = 100 ;
+            while( x > 0 ){
+                console.log( x );
+                x -= 10 ;
+            }
+
+            /* 使用 循环 和 判断 在控制台 输出一个 九九乘法表 */
+
+            let s = "" ;
+            for (let i = 1 ; i < 10 ; i++) {
+                for (let j = 1 ; j <= i ; j++) {
+                    s += i  + " * " + j + " = " + ( i * j );
+                    s += "\t" ;
+                }
+                s += "\n" ;
+            }
+            console.log( s );
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

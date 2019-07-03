@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>修改元素</title>
+
+        <style type="text/css" >
+            .wrapper { width: 80% ; margin: 30px auto ;  }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper" >
+            <p class="first">
+                获取表单元素的值可以使用表单元素的 value 属性，比如 option.value 以获取 指定 option 的取值
+                <br>
+                对于 option 元素内部的文字，可以使用其 text 属性来获取
+            </p>
+            <div class="second">
+                如果需要 获取 或 设置 普通元素(非表单元素) 的内容 可以借助于元素的 innerHTML 属性来实现
+            </div>
+            <div class="third">
+                <form action="" method="get" >
+                    <p><input type="text" name="username" value="zhangsanfeng"  placeholder="用户名"> </p>
+                    <p><input type="password" name="password" value="" placeholder="密码"> </p>
+                    <p><input type="radio" name="gender" value="male"> 男 </p>
+                    <p><input type="checkbox" name="hobby" value="eat"> 吃 </p>
+                    <p>
+                        <select name="hometown">
+                            <option value="jiangdong">江东</option>
+                            <option value="jiangxi">江西</option>
+                            <option value="jiangnan">江南</option>
+                            <option value="jiangbei">江北</option>
+                        </select>
+                    </p>
+                    <p> <textarea name="descriptor">我是一个小小小鸟</textarea> </p>
+                    <p> <input type="submit" value="提交">  </p>
+                </form>
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" >
+        ( ()=>{
+
+            /* 获取 或 修改 表单元素的内容 */
+
+            let inputList = document.querySelectorAll( ".third form input" );
+            Array.from( inputList ).forEach( e => {
+                console.log( e.constructor.name , e.nodeType , e.nodeName , e.value ) ;
+            });
+
+            console.log( "" );
+
+            let optionList = document.querySelectorAll( ".third form option" );
+            Array.from( optionList ).forEach( e => {
+                console.log( e.constructor.name , e.nodeType , e.nodeName , e.value , e.text ) ;
+            });
+
+            console.log( "" );
+
+            let textareaList = document.querySelectorAll( ".third form textarea" );
+            Array.from( textareaList ).forEach( e => {
+                console.log( e.constructor.name , e.nodeType , e.nodeName , e.value , e.innerHTML ) ;
+            });
+
+            /* 获取 或 修改 普通元素(非表单元素) 的内容 */
+            let p = document.querySelector( "p.first" ); // 选择第一个 <p class="first"> 但不会选择 <div class="first">
+            let content = p.innerHTML ;
+            console.log( content );
+            p.innerHTML = content + "<br> <b>" + Date.now() + "</b>" ;
+
+        } )();
+    </script>
+</html>

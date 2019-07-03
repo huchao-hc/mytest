@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+        <a href="/content/type?style=html" >网页形式</a>
+
+        <a href="/content/type?style=text" >纯文本形式</a>
+
+        <a href="/content/type" >获取响应正文数据</a>
+
+        <br>
+
+        <button type="button" >在浏览器终端(Console)中查看响应数据</button>
+        <script type="text/javascript" >
+            var btn = document.querySelector( "button[type=button]" );
+
+            // 使用 function 关键字声明函数
+            function  fn () {
+                var $http = new XMLHttpRequest();
+                $http.open(  "get" , "/content/type?style=html" );
+
+                $http.onreadystatechange = function (ev) {
+                    if( $http.readyState == $http.DONE ) {
+                        console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ Status Line ( Response Line ) ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+                        console.log( $http.status , $http.statusText );
+
+                        console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ Response Headers ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+                        var headers = $http.getAllResponseHeaders() ;
+                        console.log( headers );
+
+                        console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ Response Body~ ~ ~ ~ ~ ~  ~ ~ ~" );
+                        console.log( $http.response );
+                    }
+                };
+
+                $http.send( null );
+            };
+
+            var event = "click" ; // 指定事件类型( click 表示点击事件 、 dblclick 表示双击事件、keydown 表示键盘按下事件 )
+            var listener = fn ; // 指定事件监听器
+            var capture = false ; // 指定事件是否在捕获阶段处理( true 表示在捕获阶段处理 ，false 表示在冒泡阶段处理 )
+
+            btn.addEventListener( event , listener , capture );
+        </script>
+
+    </body>
+</html>

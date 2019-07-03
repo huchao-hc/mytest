@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM : document </title>
+    </head>
+    <body>
+
+        <div>
+            <p class="odd">
+                <input type="radio" value="male" name="gender">男
+                <input type="radio" value="female" name="gender">女
+            </p>
+            <div class="even" id="suibian">
+                document.getElementById( elementId )
+            </div>
+            <p class="odd">
+                document.getElementsByTagName( tagName )
+            </p>
+            <div class="even">
+                document.getElementsByClassName( className )
+            </div>
+            <p class="odd">
+                document.getElementsByName( name )
+            </p>
+            <div class="even" style="font-weight: bold ; color: blue ; ">
+                document.querySelectorAll( cssSelector )
+            </div>
+            <p class="odd" style="font-weight: bold ; color: blue ; ">
+                document.querySelector( cssSelector )
+            </p>
+            <div class="even" style="font-weight: bold ; color: blue ; ">
+                document.createElement( standardTagName )
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( () => {
+
+            // 根据 元素标识符 element identifier ，即元素的 id 属性值来查找元素
+            let e = document.getElementById( "suibian" );
+            console.log( e ) ;
+            console.log( e.constructor ); // HTMLDivElement
+            console.log( "" );
+
+            let list =  document.getElementsByTagName( "p" );
+            console.log( list ); // HTMLCollection
+            console.log( "" );
+
+            list = document.getElementsByClassName( "even" );
+            console.log( list ); // HTMLCollection
+            console.log( "" );
+
+            list = document.getElementsByName( "gender" );
+            console.log( list ); // NodeList
+            console.log( "" );
+
+            console.log( Array.from( list ) );
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+            // 使用指定的选择器选择页面上所有匹配于该选择器的元素
+            let pList = document.querySelectorAll( "p" );
+            console.log( pList ); // NodeList
+            console.log( "" );
+            let divList = document.querySelectorAll( "div" );
+            console.log( divList ); // NodeList
+            console.log( "" );
+
+            // 选择匹配于指定选择器的所有元素中的第一个元素
+            let sb = document.querySelector( "#suibian" );
+            console.log( sb );
+            console.log( "" );
+
+            // 创建指定名称的标签对应的HTML元素
+            let image = document.createElement( "img" ) ;
+            console.log( image );
+            image.setAttribute( "src" , "/icon.jpg" ) ; // image.src = "/icon.jpg" ;
+            image.setAttribute( "title" , "这是晓明现在的媳妇" ) ; // image.title = "这是晓明现在的媳妇" ;
+
+            // 使用 document.body 可以访问页面上的 body 元素
+            document.body.appendChild( image );
+
+        })();
+    </script>
+</html>

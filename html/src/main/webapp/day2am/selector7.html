@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>派生选择器: pseudo-classes selector</title>
+
+        <style type="text/css">
+
+            .items>li {
+                line-height: 30px ;
+                font-size: 20px ;
+            }
+
+            ol.items>li:hover {
+                background: #FFFF00;
+            }
+
+            ul.items  a:link { color: blue ; }
+            ul.items  a:hover { color: green ; }
+            ul.items  a:active { color: red ; }
+            ul.items  a:visited { color: gray ; }
+
+            /* 选择页面上所有的 li 元素 */
+            li { font-weight: lighter ; }
+
+            li:first-child { font-weight: bold ;  }
+            li:last-child { font-weight: bold ; }
+
+            div { margin: 15px ; padding: 10px ; }
+            div:first-child { border: 1px solid blue ; }
+            div:last-child { border: 1px solid green ; }
+
+
+            [class|=first] {
+                background: #FFFF00 ;
+            }
+
+            div q:lang(no) {
+                quotes:  "~"  "~" ;
+            }
+
+            /*
+            div q[lang|=no] {
+                quotes:  "~"  "~" ;
+            }
+            */
+
+            .input-container>input {
+                border: 1px solid #dedede ;
+                border-radius: 5px ;
+                height: 50px ;
+                line-height: 50px ;
+                width: 200px ;
+                text-align: center;
+                outline: none ;
+            }
+
+            .input-container>input:focus {
+                font-size: 20px ;
+            }
+
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="input-container">
+            <input type="text" name="username" placeholder="用户名" tabindex="2">
+            <input type="password" name="password" placeholder="密码" tabindex="1">
+        </div>
+
+        <ol class="items">
+            <li>宋远桥</li>
+            <li>俞莲舟</li>
+            <li>俞岱岩</li>
+            <li>张松溪</li>
+            <li>张翠山</li>
+            <li>殷梨亭</li>
+            <li>莫声谷</li>
+        </ol>
+
+        <ul class="items">
+            <li>  <a href="http://www.china.com"> 中华网 </a>   </li>
+            <li>  <a href="http://www.sohu.com"> 搜狐 </a>   </li>
+            <li>  <a href="http://www.163.com"> 网易 </a>   </li>
+            <li>  <a href="http://www.sina.com"> 新浪网 </a>   </li>
+        </ul>
+
+        <hr>
+
+        <div class="blocks">
+            <div class="first-element">1</div>
+            <div class="even second-element">2</div>
+            <div class="third-element">3</div>
+        </div>
+
+        <div class="blocks">
+            <div class="first-element">1</div>
+            <div class="even second-element">2</div>
+            <div class="third-element">3</div>
+        </div>
+
+        <div class="blocks">
+            <div class="first-element">11</div>
+            <div class="even second-element">22</div>
+            <div class="third-element">33</div>
+        </div>
+
+        <div>
+            <q lang="no-language">
+                测试 :lang 选择器
+            </q>
+        </div>
+
+    </body>
+</html>

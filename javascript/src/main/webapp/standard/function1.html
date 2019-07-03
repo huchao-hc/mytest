@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Function </title>
+
+        <script type="text/javascript">
+            ( ()=>{
+                console.dir( Function ); // 输出 Function 对象本身
+                console.dir( Function.constructor ); // 输出 Function 对象 的构造函数 ( 谁构造了 Function 对象 )
+                console.dir( Function === Function.constructor );
+
+                console.log( "" );
+
+                console.dir( Function.prototype ); // 获得 Function 对象的原型 ( 是个匿名函数 )
+                console.dir( Function.prototype.constructor ); // 通过原型获得 Function 对象的构造
+                console.log( "" );
+
+                // 对于 任意 JavaScript 对象( class ) 来说 通过原型获取的构造 与 对象( class ) 本身相等
+                console.dir( Function.prototype.constructor ===  Function );
+                // 对于 Function 对象来说，通过原型获取的构造方法 与 Function 对象(class) 的构造方法 相同
+                // Function.prototype.constructor 表示负责创建 Function 实例(instance) 的构造方法
+                // Function.constructor 表示创建了 Function 对象(class)本身的构造方法
+                console.dir( Function.prototype.constructor ===  Function.constructor );
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX</title>
+    </head>
+    <body>
+
+
+        <div class="buttons">
+            <button type="button">获取数据</button>
+        </div>
+
+        <div class="data">
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( ()=>{
+
+            const btn = document.querySelector( "button[type=button]" );
+            const method = "post" ;
+            const url = "/get/student" ;
+
+            let listener = (e) => {
+                e.preventDefault();
+
+                // 1、创建 XMLHttpRequest 对象
+                let $http = new XMLHttpRequest();
+
+                // 2、绑定 相应事件 的 监听器
+                $http.addEventListener( "load" , ()=>{
+                    // 6、处理响应数据
+                    console.log( $http.response );
+                } , false );
+                $http.addEventListener( "error" , ()=>{ console.log( $http.readyState ) } , false );
+
+                // 3、打开连接
+                $http.open( method , url );
+
+                let data = null ;
+                // 4、是否是 POST 请求
+                if( method.trim().toLocaleUpperCase() === "POST" ) {
+                    $http.setRequestHeader( "content-type", "application/x-www-form-urlencoded" );
+                    data = "nickname=武当老大" ;
+                }
+
+                // 5、发送请求
+                $http.send( data );
+
+            };
+
+            btn.addEventListener( "click" , listener , false  );
+
+        })();
+    </script>
+</html>

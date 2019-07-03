@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>selector : tag selector & class selector </title>
+
+        <!-- 嵌入样式 -->
+        <style type="text/css" >
+            /* 在 style 元素内部 只能使用一种注释 */
+            /* 使用 tag selector 选择页面上所有的 div 元素 */
+            div {
+                border: 1px solid blue ;
+                margin: 15px ;
+                padding: 15px ;
+            }
+            /* 使用 tag selector 选择页面上所有的 p 元素 */
+            p {
+                background: #FF8C00;
+                margin: 15px ;
+                padding: 15px ;
+            }
+
+            /* 使用 class selector 选择页面上那些 class 属性中 包含 first 的元素 */
+            .first { background: #dedede ;}
+            /* 使用 class selector 选择页面上那些 class 属性中 包含 odd 的元素 */
+            .odd { text-align: center ; font-weight: bolder ; color: blue ; }
+
+            #hello { letter-spacing: 10em;}
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <div class="first">hello</div>
+            <p class="second odd">world</p>
+            <div class="third">ecut</div>
+            <div class="fourth odd">牛逼</div>
+        </div>
+
+        <div class="wrapper">
+            <div class="first">东华</div>
+            <div class="second odd">理工</div>
+            <p class="third">大学</p>
+            <div class="fourth odd">牛逼</div>
+        </div>
+
+    </body>
+
+</html>

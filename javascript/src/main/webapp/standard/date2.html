@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Date </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+               let date = new Date();
+
+               console.log( "toString() : " , date.toString() );
+               console.log( "toDateString() : " , date.toDateString() );
+               console.log( "toTimeString() : " , date.toTimeString() );
+
+               console.log( "" );
+
+               console.log( "toLocaleString() : " , date.toLocaleString() );
+               console.log( "toLocaleDateString() : " , date.toLocaleDateString() );
+               console.log( "toLocaleTimeString() : " , date.toLocaleTimeString() );
+
+               console.log( "" );
+
+               console.log( "toISOString() : " , date.toISOString() );
+               console.log( "toUTCString() : " , date.toUTCString() );
+
+               console.log( "" );
+
+               let ds = "" ;
+               ds += date.getFullYear() + "年" ; // Date 中的 getYear() 很早以前已经被废弃
+               ds += ( date.getMonth() + 1  ) + "月";
+               // 自己添加 日期、星期、时、分、秒、毫秒
+               console.log( ds );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

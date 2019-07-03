@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Function </title>
+
+        <script type="text/javascript">
+            ( ()=>{
+
+                /*
+                function add ( a , b ) {
+                    return a + b ;
+                }
+                */
+
+                let add = new Function( "a" , "b" , "return a + b ;" );
+                console.log( add );
+
+                let result = add( 100 , 200 );
+                console.log( result );
+
+                //  new Function( [ ...args ] , body );
+
+                let hello = new Function( "console.log( arguments[0] );" );
+                hello();
+                hello( "牛红孩儿" );
+
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

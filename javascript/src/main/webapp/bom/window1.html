@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: window</title>
+
+        <script type="text/javascript" >
+            ( function () {
+
+                // 客户端 JavaScript 通常以 浏览器为宿主
+                // 在 客户端 JavaScript 中，window 是 Window 对象(class) 的实例(instance)
+                console.log( "window : " , window );
+                console.log( "window.constructor : " , window.constructor );
+                console.log( "window.__proto__ : " , window.__proto__ );
+
+                console.log( "" );
+
+                // 客户端 JavaScript 通常以 浏览器为宿主，所以可以使用浏览器提供的函数
+                let name = window.prompt( "请输入你的姓名" );
+                console.log( "欢迎" , name );
+
+                let exists = window.confirm( "你有男朋友吗?" );
+                console.log( exists );
+
+                if( exists ) {
+                    window.alert( "真遗憾，" + name + "居然有男朋友" );
+                } else {
+                    window.alert( "太好，" + name + "没有男朋友，可以下手了" );
+                }
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

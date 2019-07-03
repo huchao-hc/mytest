@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM : 新增元素</title>
+        <style type="text/css">
+             body { margin: 0px ; padding: 0px ; }
+            .outer { border: 1px solid blue ; margin: 30px ; }
+            .outer .buttons { border: 1px solid #efefef ; margin: 30px ; }
+            .outer .buttons>button {  }
+            .outer .container ,
+            .outer .wrapper { border: 2px solid red ; margin: 30px ; }
+            .outer .container>div { border: 1px solid green ; margin: 30px ;  padding: 15px ; text-align: center ; }
+        </style>
+    </head>
+    <body>
+
+        <div class="outer">
+            <div class="buttons">
+                <button type="button" class="append-child">在父元素内部追加新元素</button>
+                <button type="button" class="insert-child">在父元素内部指定元素前插入新元素</button>
+                <button type="button" class="replace-child">用新元素替换父元素内部指定元素</button>
+            </div>
+            <div class="buttons">
+                <button type="button" class="before" > 在 container 元素外部的前方插入一个新的元素</button>
+            </div>
+            <div class="container">
+                <div >东华理工，牛逼。</div>
+                <div >软件学院，牛逼。</div>
+                <div >国际学院，牛逼。</div>
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( ()=>{
+            const container = document.querySelector( ".outer .container" );
+            const appendButton = document.querySelector( ".append-child" );
+            const insertButton = document.querySelector( ".insert-child" );
+            const replaceButton = document.querySelector( ".replace-child" );
+            const beforeButton = document.querySelector( ".before" );
+
+            if( container ) {
+
+                let appendFun = function(){
+                    // 创建一个新元素
+                    let element = document.createElement( "div" );
+                    // 将 等号之后的 字符串作为 新元素的内容
+                    element.innerHTML = "<b>" + new Date().toLocaleString() + "</b>";
+                    // 将元素追加到 父元素 内部的末尾
+                    container.appendChild( element ) ; // * * *  appendChild( newNode ) * * *
+                }
+                appendButton.addEventListener( "click" , appendFun , false );
+
+                /* ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~ */
+
+                insertButton.addEventListener( "click" , ()=>{
+                    // 创建一个新元素
+                    let element = document.createElement( "div" );
+                    // 将 等号之后的 字符串作为 新元素的内容
+                    element.innerHTML = "<b>" + new Date().toLocaleString() + "</b>";
+
+                    // 以 container 第二个元素为参照元素
+                    let reference = container.firstElementChild.nextElementSibling ;
+
+                    // 在 父元素 ( container ) 内部的 指定元素 ( reference ) 前插入 新元素 ( element )
+                    container.insertBefore( element , reference ); // * * * insertBefore( newNode , refNode ) * * *
+                } , false );
+
+                /* ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~ */
+
+                replaceButton.addEventListener( "click" , ()=>{
+                    // 创建一个新元素
+                    let element = document.createElement( "div" );
+                    // 将 等号之后的 字符串作为 新元素的内容
+                    element.innerHTML = "<b>" + new Date().toLocaleString() + "</b>";
+
+                    // 以 container 第二个元素为参照元素
+                    let old = container.firstElementChild.nextElementSibling ;
+
+                    // 用 新元素 ( element ) 替换 父元素 ( container ) 内的 指定元素 ( old )
+                    container.replaceChild( element , old ); // * * * replaceChild( newNode , oldNode ) * * *
+                } , false );
+
+                /** 作业 : 在 HTML 页面上实现一个电子时钟，时间每秒刷新一次。 **/
+
+
+                /* ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~  ~ ~ */
+                beforeButton.addEventListener( "click" , ()=>{
+
+                    // 获得 container 元素的父元素
+                    let parent = container.parentElement ;
+
+                    // 创建一个新元素
+                    let element = document.createElement( "div" );
+                    element.classList.add( "wrapper" );
+                    // 将 等号之后的 字符串作为 新元素的内容
+                    element.innerHTML = "<b>" + new Date().toLocaleString() + "</b>";
+
+                    // 以 container 第二个元素为参照元素
+                    let old = container.firstElementChild.nextElementSibling ;
+
+                    // 在 parent 元素内部的 container 元素之前 插入新元素 ( element )
+                    parent.insertBefore( element , container );
+                } , false );
+
+
+            }
+        } )();
+    </script>
+
+</html>

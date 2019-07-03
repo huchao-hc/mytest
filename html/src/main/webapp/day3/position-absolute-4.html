@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>导航菜单</title>
+
+        <style type="text/css" >
+            ul { list-style: none ; padding: 0px ; margin: 0px ; }
+            ul li { margin: 0px ; }
+
+            .navigator { }
+            .navigator>li {
+                float: left ; width: 25% ; line-height: 50px ; background: #feffe9;
+                position: relative ; /* 为了子元素能够相对于自己进行定位，所以这里使用了 非 static 定位方式 */
+            }
+
+            .navigator>li:hover ul { visibility: visible ; }
+
+            .navigator>li ul {
+                position: absolute ; /* 使用绝对定位方式，参照第一个非static定位的父元素进行定位*/
+                left : 0px ;
+                top : 50px ;
+                width: 100% ; /* 相对于父元素确定当前元素的宽度 */
+                visibility: hidden ;
+                background: #b0d0ff;
+            }
+            .navigator>li ul li { line-height: 30px ; }
+
+        </style>
+
+    </head>
+
+    <body>
+
+        <h3>横版导航菜单</h3>
+
+        <ul class="navigator">
+            <li>
+                <a href="">回锅肉</a>
+                <ul>
+                    <li> <a href="">麻花回锅肉</a> </li>
+                    <li> <a href="">土豆片回锅肉</a> </li>
+                    <li>蒜苗回锅肉</li>
+                    <li>花白回锅肉</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">藜蒿</a>
+                <ul>
+                    <li>藜蒿炒腊肉</li>
+                    <li>藜蒿回锅肉</li>
+                    <li>清炒藜蒿</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">回锅肉</a>
+                <ul>
+                    <li> <a href="">麻花回锅肉</a> </li>
+                    <li> <a href="">土豆片回锅肉</a> </li>
+                    <li>蒜苗回锅肉</li>
+                    <li>花白回锅肉</li>
+                </ul>
+            </li>
+            <li>
+                <a href="">藜蒿</a>
+                <ul>
+                    <li>藜蒿炒腊肉</li>
+                    <li>藜蒿回锅肉</li>
+                    <li>清炒藜蒿</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div style="height: 300px ;">
+            hello , world .
+        </div>
+
+        <h3>竖版导航菜单</h3>
+
+    </body>
+
+</html>

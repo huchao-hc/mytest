@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>arguments</title>
+
+        <script type="text/javascript">
+
+            // 声明函数
+            function add() {
+                // 在任何函数内部都有一个名称为 arguments 的 "类数组" 对象(实例)
+                const n = arguments.length ;
+                console.log( "参数个数 " , n );
+                console.log( arguments );
+
+                if( n < 2 ) {
+                    throw new Error( "相加的参数不能少于两个" );
+                } else {
+                    let sum = 0 ;
+                    for( let i = 0 ; i < n ; i++ ) {
+                        sum += arguments[ i ] ; // 从  "类数组" 对象(实例) arguments 获取元素
+                    }
+                    return sum ;
+                }
+            }
+
+            let result = add( 100 , 200 );
+            console.log( "result = " , result );
+
+            result = add( 100 , 200 , 300 );
+            console.log( "result = " , result );
+
+            result = add( 100 , 200 , 300 , 400 );
+            console.log( "result = " , result );
+
+            result = add( 100 , "haha" , "hehe" , "heihei" , "xixi" );
+            console.log( "result = " , result );
+
+            result = add();
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

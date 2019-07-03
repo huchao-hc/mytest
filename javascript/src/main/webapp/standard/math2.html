@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Math</title>
+
+        <script type="text/javascript">
+            ( function () {
+
+                console.log( "Math中有大量关于数学运算的方法:" );
+
+                let rand = Math.random(); // [ 0 , 1 )
+                console.log( rand , typeof( rand ) );
+
+                let a = rand * 100 ; // [ 0 , 100 ) 之间的浮点数
+                console.log( a , typeof( rand ) );
+
+                let b = Math.floor( a ); // [ 0 , 100 ) 之间的整数
+                console.log( b , typeof( b ) );
+
+                let c = Math.trunc( a ) ;
+                console.log( c , typeof( c ) );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" )
+
+                let first = 34.56 ;
+                let second = Math.floor( first ); // 34
+                console.log( second  );
+                let third = Math.round( first ); // 35
+                console.log( third  );
+                let fourth = Math.ceil( first ); // 35
+                console.log( fourth  );
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

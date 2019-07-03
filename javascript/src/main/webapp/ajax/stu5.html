@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX</title>
+    </head>
+    <body>
+
+
+        <div class="buttons">
+            <button type="button">获取数据</button>
+        </div>
+
+        <div class="data">
+        </div>
+
+    </body>
+
+    <!-- 导入 JavaScript 代码 ( src 指定 JavaScript 文件的位置，可以使用相对路径或绝对路径 ) -->
+    <!-- 在使用了 src 属性的 script 元素内部不要书写任何内容 -->
+    <script type="text/javascript" src="/ajax/ajax-support.js" ></script>
+    <!-- 只要导入了 ajax-support.js ，则该文件中的所有 JavaScript 会立即执行 -->
+
+    <!-- 如果需要自定义JavaScript 代码，则单独使用一个 script 元素来实现 -->
+    <script type="text/javascript">
+        ( ()=>{
+
+            const btn = document.querySelector( "button[type=button]" );
+
+            let fn = () => {
+
+                let url = "/get/student" ;
+
+                let data = "nickname=武当张五侠" ;
+
+                let success = ( data )=>{
+                    console.log( "SUCCESS" );
+                    console.log( data );// 输出响应数据
+                    console.log( data.status , data.reason );
+                    console.log( data.headers );
+                    console.log( data.body );
+                }
+
+                let failed = () => { console.log( "出错了") }
+
+                // 使用已经绑定在 window 上的 X 实例
+                X.get( url , data , success , failed );
+
+            }
+
+            btn.addEventListener( "click" , fn , false );
+
+        } )();
+    </script>
+</html>

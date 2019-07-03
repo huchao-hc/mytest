@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>全局函数</title>
+        <script type="text/javascript">
+
+            let x  ;
+            console.log( "is finite : " ,  isFinite( x ) );
+            console.log( "is not a number : " , isNaN( x ) );
+
+            x = NaN ;
+            console.log( "is finite : " ,  isFinite( x ) );
+            console.log( "is not a number : " , isNaN( x ) );
+
+            x = 100 / 0 ; // Infinity ;
+            console.log( "is finite : " ,  isFinite( x ) );
+            console.log( "is not a number : " , isNaN( x ) );
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

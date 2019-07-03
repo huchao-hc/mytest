@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>下拉菜单</title>
+        <style type="text/css" >
+            ul { list-style: none ; padding: 0px ; margin: 0px ; }
+            ul li { margin: 0px ; }
+
+            .navigator { }
+            .first>li {
+                float: left ; width: 25% ; line-height: 50px ; background: #feffe9;
+                position: relative ; /* 为了子元素能够相对于自己进行定位，所以这里使用了 非 static 定位方式 */
+            }
+
+            .first>li:hover ul { visibility: visible ; }
+
+            .first>li ul {
+                position: absolute ; /* 使用绝对定位方式，参照第一个非static定位的父元素进行定位*/
+                left : 40px ;
+                top : 0px ;
+                width: 100% ; /* 相对于父元素确定当前元素的宽度 */
+                visibility: hidden ;
+                background: #b0d0ff;
+            }
+            .first>li ul li { line-height: 30px ; }
+        </style>
+    </head>
+    <body>
+        <ul class="first">
+            <li class="second">
+                <a href="">法师</a>
+                <ul class="third">
+                    <li>貂蝉</li>
+                    <li>王昭君</li>
+                    <li>妲己</li>
+                    <li>上官婉儿</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

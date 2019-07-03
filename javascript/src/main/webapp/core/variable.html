@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>变量</title>
+
+        <script type="text/javascript">
+
+            // 声明变量 ( variable )
+            var x ; // 仅声明变量但取值是未知的
+            console.log( x ); //  undefined
+            // 来者不拒，给啥是啥
+            x = 100 ;
+            console.log( x );
+            x = "hello" ;
+            console.log( x );
+            x = 'world' ;
+            console.log( x );
+            x = true ;
+            console.log( x );
+            x = 3.14 ;
+            console.log( x );
+
+            // 常量 ( constant )
+            const PI = 3.141592653689793 ;
+            console.log( PI );
+            try {
+                PI = 6.28;
+            } catch ( e ) {
+                console.log( e.name );
+                console.log( e.message );
+                console.log( e );
+            }
+
+        </script>
+
+    </head>
+    <body>
+
+        <h5>请查看浏览器终端中的输出</h5>
+
+        <hr>
+
+        <h5>JavaScript变量的特点</h5>
+        <ul>
+            <li> 不主动 </li>
+            <li> 不拒绝 </li>
+            <li> 不负责 </li>
+        </ul>
+
+    </body>
+</html>

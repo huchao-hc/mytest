@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let array = [ 90 , 30 , 40 , 10 , 50 ];
+
+                // array.forEach( (element ) => { console.log( element ) } );
+                array.forEach( element  => console.log( element ) ); // 使用了箭头函数
+
+                array.sort( (a , b ) => {
+                    if( a > b ) {
+                        return 1 ;
+                    } else if( a == b ) {
+                        return 0 ;
+                    } else {
+                        return -1 ;
+                    }
+                } );
+
+                array.forEach(  ( element , index ) => { console.log( index , element ) }  );
+
+                /*
+                let fn = function(e){
+                    return e / 10 ;
+                }
+                */
+                let fn = e => e / 10 ;
+                let a = array.map( fn );
+
+                console.log( "a = " , a );
+                console.log( "array = " ,  array );
+
+                console.log( "" );
+                console.log( "对 array 数组中的各个元素累加求和" );
+                let reducer =  (accumulator , element , index , array ) => {
+                    console.log( accumulator , element , index , array );
+                    return accumulator + element ;
+                };
+                let acc = array.reduce( reducer );
+                console.log( acc );
+
+                console.log( "将 array 数组中的各个元素连接成一个字符串" );
+                let str = array.reduce( ( x , y ) => x + "," + y );
+                console.log( str );
+
+                console.log( "求 array 数组中的各个元素的乘积" );
+                let suibian = array.reduce( ( x , y ) => x * y );
+                console.log( suibian );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+        <h5> arrayInstance.map( mapFunction ) 可以将源数组实例中的各个元素经过mapFunction处理后映射到一个新数组实例中 </h5>
+
+    </body>
+</html>

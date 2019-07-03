@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "Object.prototype" );
+                console.log( Object.prototype );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                function Student() {
+                    this.sleep = function () {
+                        console.log( "上课睡觉" );
+                    }
+                }
+
+                function HighSchoolStudent() {
+                }
+
+                HighSchoolStudent.prototype = new Student();
+
+                let hss = new HighSchoolStudent();
+                hss.sleep();
+
+                let x = Student.prototype.isPrototypeOf( hss );
+                console.log( x ) ;
+                let y = Object.prototype.isPrototypeOf( hss );
+                console.log( y ) ;
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+                console.log( hss.__proto__ );
+                console.log( hss.__proto__.__proto__ );
+                console.log( hss.__proto__.__proto__.__proto__ );
+                console.log( hss.__proto__.__proto__.__proto__.__proto__ );
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+        <h5>通过某个对象(class)的原型(prototype)可以判断该原型(prototype)是否存在于某个实例(instance)的原型链上</h5>
+
+        <h5>Object.prototype.isPrototypeOf( hss ) </h5>
+
+    </body>
+</html>

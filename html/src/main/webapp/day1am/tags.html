@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>常用标记</title>
+    </head>
+    <body>
+
+        <h3>常用标记</h3>
+
+        <span style="background: yellow;">hello</span>
+
+        <!--  使用 div 标记定义一个独占一行的元素 -->
+        <div style="background: #ffe4bb;">
+            DIV独占一行
+        </div>
+
+        <b style="background: yellow;">加粗的文本</b>
+        <u>有下划线的文本</u>
+        <i>斜体字体</i>
+        <s>有删除线的文本</s>
+        <q>行内引用文本</q>
+
+        <p style="background: #ffe4bb;">
+            王勃在&lt;滕王阁序&gt;中说:<q>冯唐易老，李广难封</q>
+        </p>
+
+        <hr>
+
+        <strong>在页面上嵌入代码可以使用&lt;pre&gt;</strong> ，比如
+<pre>
+CREATE [ OR REPLACE ] PROCEDURE procedure_name
+    [ ( argument [MODE] DATATYPE DEFAULT default_value [ , .... ] ) ]
+IS [AS]
+    PL/SQL Block ;
+</pre>
+
+    <hr>
+
+    <h5>有序列表(有序清单)</h5>
+
+        <ol>
+            <li >川菜</li>
+            <li type="A" >湘菜</li>
+            <li type="a">粤菜</li>
+            <li type="I">赣菜</li>
+            <li type="i" >鲁菜</li>
+            <li type="1" >粤菜</li>
+        </ol>
+
+    <h5>无序列表(无序清单)</h5>
+
+        <ul>
+            <li>川菜</li>
+            <li>湘菜</li>
+            <li>粤菜</li>
+            <li>赣菜</li>
+            <li>鲁菜</li>
+        </ul>
+
+    <h5>嵌套列表</h5>
+
+        <ul>
+            <li> 川菜
+                <ul>
+                    <li>回锅肉</li>
+                    <li>盐煎肉</li>
+                    <li>老碗鱼</li>
+                </ul>
+            </li>
+            <li>赣菜
+                <ul>
+                    <li>藜蒿炒腊肉</li>
+                    <li>辣椒炒肉</li>
+                    <li>竹笋炒腊肉</li>
+                </ul>
+            </li>
+        </ul>
+
+        <div style="background: #dedede ;">
+            <header style="background: yellow">head</header>
+            <article style="background: darkorange">content</article>
+            <footer style="background: yellow">foot</footer>
+        </div>
+
+        <hr>
+
+        <div style="background: #dedede ;">
+            <div style="background: yellow">head</div>
+            <div style="background: darkorange">content</div>
+            <div style="background: yellow">foot</div>
+        </div>
+
+    </body>
+</html>

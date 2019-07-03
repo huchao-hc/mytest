@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+
+        <form action="http://dict.cn/search"
+                  method="GET"
+                  enctype="application/x-www-form-urlencoded">
+            <input type="text" name="q">
+            <input type="submit" value="查询">
+        </form>
+
+        <hr>
+
+        <form action="" >
+            <input type="text" name="username" placeholder="用户名"> <br>
+            <input type="password" name="password" placeholder="密码"> <br>
+            性别:
+            <input type="radio" name="gender" value="M" id="gender-male"  >
+            <label for="gender-male">男</label>
+            <input type="radio" name="gender" value="F" id="gender-female" checked>
+            <label for="gender-female">女</label>
+            <br>
+            爱好:
+            <input type="checkbox" name="hobby" value="eat" id="hobby-eat" checked>
+            <label for="hobby-eat">吃</label>
+            <input type="checkbox" name="hobby" value="eatji" id="hobby-eat-ji">
+            <label for="hobby-eat-ji">吃鸡</label>
+            <input type="checkbox" name="hobby" value="sleep" id="hobby-sleep" checked>
+            <label for="hobby-sleep">睡</label>
+            <br>
+            告白:
+            <textarea name="gaobai"></textarea>
+            <br>
+            籍贯:
+            <select name="address">
+                <option value="jiangdong">江东</option>
+                <option value="jiangnan" selected>江南</option>
+                <option value="jiangbei">江北</option>
+                <option value="xijiang">西江</option>
+            </select>
+            <br>
+
+            <input type="hidden" name="id" value="1001" >
+
+            <input type="reset" value="重置">
+            <input type="submit" value="提交">
+
+        </form>
+
+
+    </body>
+</html>

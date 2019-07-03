@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Function </title>
+
+        <script type="text/javascript">
+            ( ()=>{
+
+                /*
+                function Student ( id , name ) {
+                    this.id = id ;
+                    this.name = name ;
+                }
+                */
+
+                const Student = new Function( "id" , "name" , " this.id = id  ; this.name = name ; " );
+                console.log( Student );
+
+                let s = new Student( 100  , "华文" );
+                console.log( s );
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Number </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "Number.constructor : " );
+                console.log(  Number.constructor );
+
+                console.log( "" );
+
+                console.log( "Number.prototype : " );
+                console.log(  Number.prototype );
+
+                console.log( "" );
+
+                console.log( "Number.prototype.constructor : " );
+                console.log(  Number.prototype.constructor );
+
+                console.log( "" );
+
+                let n = 100 ;
+                console.log( n , typeof( n ) );
+                console.log( "" );
+
+                let w = new Number( n );
+                console.log( w , typeof( w ) );
+
+                console.log( "" );
+
+                console.log( w.__proto__ );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

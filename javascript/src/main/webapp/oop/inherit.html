@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>"继承"</title>
+        
+        <script type="text/javascript" >
+            ( function () {
+
+                /* * * * * * * * * *  ES 6 以前的写法 * * * * * * * * */
+                function Student( id , name ){
+                    this.id = id ;
+                    this.name = name ;
+                    this.show = function(){
+                        console.log( this.id , this.name );
+                    }
+                }
+
+                function HighSchoolStudent(){
+                    if( arguments.length == 2 ) {
+                        // 调用 "父类" 构造
+                        Student.prototype.constructor.call( this , arguments[ 0 ] , arguments[ 1 ] );
+                    }
+                }
+
+                // 使用 对象( class ) 的原型 ( prototype ) 实现继承
+                HighSchoolStudent.prototype = new Student();
+                HighSchoolStudent.prototype.constructor = HighSchoolStudent ;
+
+                let a = new HighSchoolStudent( 2002 , "华文" );
+                a.show();
+
+                let b = new HighSchoolStudent( 2022 , "华武"  );
+                b.show();
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+
+                /* * * * * * * * * *  ES 6 的写法 * * * * * * * * */
+
+                class Animal {
+                    constructor( id , name ) {
+                        console.log( "Animal constructor " );
+                        this.id = id ;
+                        this.name = name ;
+                    }
+                    show(){
+                        console.log( this.id , this.name );
+                    }
+                }
+
+                class Beast extends Animal {
+                    constructor( id , name ) {
+                        super( id , name );
+                        console.log( "Beast constructor " );
+                    }
+                }
+
+                let x = new Beast( 1 , "食铁兽" );
+                x.show();
+
+                let y = new Beast( 2 , "猫熊" );
+                y.show();
+
+                
+            } )();
+        </script>
+        
+    </head>
+    <body>
+    
+        <div>
+            面向对象编程三<b style="font-size: 200px;">大</b>特征之"继承"
+        </div>
+    
+    </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: JSON</title>
+
+        <script type="text/javascript">
+            ( function () {
+
+                console.log( "JSON 是一个 Object 对象(class) 的实例(instance)" )
+                console.log( "constructor : " ,  JSON.constructor);
+                console.log( "prototype : " ,  JSON.__proto__ );
+
+                console.log( "" );
+
+                let ex = "[ 100 , 200 , 300 , 400 , 500 ]" ;
+                console.log( ex , "\t" , typeof( ex ) ) ;
+                console.log( "" );
+
+                let array = eval( "(" + ex + ")" ); // 反对使用
+                console.log( array , "\t" , typeof( array ) ) ;
+                console.log( "" );
+
+                array = JSON.parse( ex ); // 建议使用
+                console.log( array , "\t" , typeof( array ) ) ;
+                console.log( "" );
+
+                ex = '{ "id" : 1001 , "name" : "尼古拉斯赵四" , "gender" : "男" }' ;
+                // 使用 JSON 格式字符串声明的 键值对中 键 必须使用 双引号
+                // ex = "{ 'id' : 1001 , 'name' : '尼古拉斯赵四' , 'gender' : '男' }" ;
+                console.log( ex , "\t" , typeof( ex ) ) ;
+                console.log( "" );
+
+                // 被 JSON.parse 所解析的字符串必须严格符合 JSON 格式要求
+                let stu = JSON.parse( ex ); // 将 用JSON格式的字符串描述的信息 解析为 JavaScript 对象
+                console.log( stu , "\t" , typeof( stu ) ) ;
+                console.log( stu.id ) ;
+                console.log( stu.name ) ;
+                console.log( stu.gender ) ;
+                console.log( "" );
+
+                let pure = Object.create( null );
+
+                let properties = {
+                    "id" : { enumerable : true , writable : true , configurable : false , value : 1001  } ,
+                    "name" : { enumerable : true , writable : true , configurable : false , value : "张三丰"  } ,
+                    "show" : {
+                        enumerable : true ,
+                        writable : false ,
+                        configurable : false ,
+                        value : function () {
+                            console.log( this.id , this.name );
+                        }
+                    }
+                };
+
+                Object.defineProperties( pure , properties );
+
+                console.log( pure ) ;
+
+                // let str = pure.toString(); // TypeError: pure.toString is not a function
+
+                // 需要将任意一个 对象 转换为 JSON 格式的字符串时，可以使用 JSON.stringify
+                let str = JSON.stringify( pure );
+                console.log( str );
+                console.log( typeof(str) );
+
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

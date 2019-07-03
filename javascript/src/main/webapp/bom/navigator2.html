@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: navigator </title>
+
+        <script type="text/javascript" >
+            ( function () {
+
+                for( let x in navigator ) {
+                    console.log( x , navigator[ x ] );
+                }
+
+                console.log( "" );
+
+                console.log( navigator.userAgent ) ; // request header : user-agent
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

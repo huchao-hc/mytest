@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: String </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // JavaScript 中的 string 是个原始数据类型
+                // JavaScript 中的 String 是个对象(class)，属于引用类型
+
+                let date = new Date();
+                console.log( date , typeof( date ) );
+
+                let str = new String( date );
+                console.log( str  , typeof( str ) );
+
+                let s = String( date );
+                console.log( s  , typeof( s ) );
+                console.log( "" );
+
+                let name = "尼古拉斯赵四" ;
+                console.log( name  , typeof( name ) );
+
+                // 必须首相将 原始数据类型的 字符串 包装成 String 实例才可以使用 substring 函数，所以这里发生了 "自动装箱"
+                name = name.substring( 4 ) ;
+                console.log( name  , typeof( name ) );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

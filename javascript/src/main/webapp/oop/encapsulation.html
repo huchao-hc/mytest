@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>"封装"</title>
+        
+        <script type="text/javascript" >
+            ( function () {
+                
+                function Human ( id , name ) {
+
+                    // 凡是以 "this.xxx" 形式声明的 变量 或 函数 都属于 该 对象(class) 的实例(instance)
+                    this.id = id ;
+
+                    //  如果声明变量或函数时未使用 "this." 前缀，
+                    //  而是使用了 let 、const 、var 则该 变量或函数数据 局部变量 或 局部函数
+                    //  因为是局部的，仅限当前函数使用，所可以当作 私有变量 或 私有函数 使用
+                    let humanName = name ;
+
+                    this.getName = function(){
+                        return humanName ;
+                    }
+
+                    this.setName = function ( name ) {
+                        humanName = name ;
+                    }
+                    
+                }
+
+                let h = new Human( 1002 , "石榴姐" );
+                console.log( h.id );
+                console.log( h.getName() );
+                h.setName( "凤姐" );
+                console.log( h.getName() );
+                
+            } )();
+        </script>
+        
+    </head>
+    <body>
+    
+        <div>
+            面向对象编程三<b style="font-size: 200px;">大</b>特征之"封装"
+        </div>
+    
+    </body>
+</html>

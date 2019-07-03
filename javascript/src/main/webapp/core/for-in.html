@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>for...in</title>
+
+        <script type="text/javascript">
+
+            // for( Object x : list)
+            for( let x in console ) {
+                console.info( x , console[ x ] );
+            }
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+
+            // 使用 JavaScript Object Notation 声明一个 JavaScript 数组
+            let array = [ 100 , 200 , 300 , 400  ];
+            for ( let i in array ) {
+                let e = array[ i ] ;
+                console.log( i , e );
+            }
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ " );
+
+            // 使用 JavaScript Object Notation 声明一个 JavaScript 对象(实例)
+            let student = { "id" : 1001 , "name" : "曾阿牛" , "gender" : "男" , "birthdate" : "1996-05-08" };
+
+            for( let key in student ) {
+                let value = student[ key ];
+                console.log( key , value ) ;
+            }
+
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

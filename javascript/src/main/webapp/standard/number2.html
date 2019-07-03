@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Number </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "将非数字类型的值包装成 Number 实例的特殊情况:" );
+
+                console.log( "" );
+
+                let a = new Number( "" );
+                console.log( a , typeof( a ) );
+                console.log( a.toString() ); // 0
+                console.log( "" ) ;
+
+                let b = new Number( "hello" );
+                console.log( b , typeof( b ) );
+                console.log( b.toString() ); // NaN
+                console.log( "" ) ;
+
+                let c = new Number( null );
+                console.log( c , typeof( c ) );
+                console.log( c.toString() );
+                console.log( "" ) ;
+
+
+                let o = new Object();
+                let d = new Number( o );
+                console.log( d , typeof( d ) );
+                console.log( d.toString() ); // NaN
+                console.log( "" ) ;
+
+                let e = new Number( false );
+                console.log( e , typeof( e ) );
+                console.log( e.toString() ); // true : 1 , false : 0
+                console.log( "" ) ;
+
+                let f = new Number( undefined );
+                console.log( f , typeof( f ) );
+                console.log( f.toString() ); // NaN
+                console.log( "" ) ;
+
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

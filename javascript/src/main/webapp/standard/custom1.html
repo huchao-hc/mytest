@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>自定义对象</title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // 约定: 所有 对象名称 每个单词的首字母大写，比如 Student 、HighSchoolStudent
+                // 通过声明 函数的形式来声明一个对象( class )
+                function Student () {
+                    console.log( "Student execute" );
+                }
+
+                // Student 首先是个函数
+                console.log( "Student.constructor : " );
+                console.log( Student.constructor ); // Function
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                // 其次 Student 是个对象( class )，可以通过对象(class)来获取其原型(prototype)
+                console.log(  "Student.prototype : " );
+                console.log(  Student.prototype );
+                // 因为是个对象( class ) 所以也是个 构造函数 ( constructor ) ，可以通过原型来获取 构造函数的引用
+                console.log(  "Student.prototype.constructor : " );
+                console.log(  Student.prototype.constructor );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                let s = new Student();
+                console.log( "student instance : " , s );
+                console.log( "student instance __proto__ : " , s.__proto__ );
+                console.log( "student instance constructor : "  );
+                console.log(  s.__proto__.constructor );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                console.log( s.__proto__ === Student.prototype ); // true
+                console.log( s.__proto__.constructor === Student.prototype.constructor ); // true
+
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

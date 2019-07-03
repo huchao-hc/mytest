@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>IIFE</title>
+
+        <script type="text/javascript" >
+
+            // 声明一个匿名函数并将其作为取值赋值给一个变量
+            var a = function ( x ) {
+                console.log( x ) ;
+            } ;
+
+            // 调用函数
+            a( "曾阿牛" );
+
+            // ( 函数声明 )( 实参 );
+            // (  function(形参列表) {  函数体 }   )( 实参列表 );
+            ( function( x ){ console.log( x ); } ) ( "鲁班" );
+
+
+            ( function ( x ) {
+                console.log( x );
+              } ) ( "公输班" );
+
+        </script>
+
+    </head>
+    <body>
+
+        <h5>Immediately Invoked Function Expression </h5>
+        <h5>立即调用函数表达式</h5>
+
+    </body>
+</html>

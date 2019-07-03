@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let first = Object.create( null );
+
+                let firstProperties = {
+                    "id" : { enumerable : true , writable:true , configurable:false , value:1001 } ,
+                    "name" : { enumerable : true , writable:true ,value : "张君宝" } ,
+                    "gender" : { enumerable : true ,writable:true , value : "男" } ,
+                    "age" : { enumerable : true , writable:true , configurable:false , value:20 } ,
+                    "friend" : { enumerable : true ,writable:true , value : "郭襄" } ,
+                };
+
+                Object.defineProperties( first , firstProperties );
+
+                for( let name in first ){
+                    console.log( name , first[ name ] );
+                }
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                let keys = Object.keys( first );
+                for (let i = 0; i < keys.length ; i++) {
+                    let name = keys[ i ] ;
+                    console.log( name  , first[ name ] );
+                }
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                let values = Object.values( first );
+                for ( let i in values ) {
+                    console.log( values[ i ] ) ;
+                }
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+               let entries = Object.entries( first );
+
+               /*
+                for( let [ key , value ] of entries ){ // for...of 循环
+                    console.log( `${key} = ${value}` ); // 模版字符串
+                }
+                */
+
+               for( let i in entries ) {
+                   let entry = entries[ i ] ;
+                   console.log( i );
+                   for( let i = 0 ; i < entry.length ; i++ ){
+                       console.log( "\t" , entry[ i ] );
+                   }
+               }
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+               Object.preventExtensions( first );
+
+               console.log( Object.isSealed( first ) ) ;
+               console.log( Object.isExtensible( first ) )
+
+               first.birthdate = "1996-05-08" ;
+
+               console.log( first );
+
+               first.id = 1 ;
+               console.log( first );
+               delete  first.id ;
+                console.log( first );
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

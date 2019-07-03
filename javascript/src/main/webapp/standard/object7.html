@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let first = Object.create( null );
+
+                let firstProperties = {
+                    "id" : { enumerable : true , writable:true , configurable:false , value:1001 } ,
+                    "name" : { enumerable : true , writable:true ,value : "张君宝" } ,
+                    "gender" : { enumerable : true ,writable:true , value : "男" } ,
+                };
+
+                Object.defineProperties( first , firstProperties );
+
+                let second = Object.create( null );
+
+                let secondProperties = {
+                    "age" : { enumerable : true , writable:true , configurable:false , value:20 } ,
+                    "name" : { enumerable : true , writable:true ,value : "张三丰" } ,
+                    "friend" : { enumerable : true ,writable:true , value : "郭襄" } ,
+                };
+
+                Object.defineProperties( second , secondProperties );
+
+                /*
+                let first = {
+                    id : 1001 ,
+                    name : "张君宝" ,
+                    gender: "男"
+                };
+
+                let second = {
+                    name : "张三丰"  ,
+                    age : "20" ,
+                    friend : "郭襄"
+                };
+                */
+
+                let third = Object.assign( first , second );
+                console.log( third );
+                console.log( third === first );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                Object.freeze( third );
+
+                third.id = 2002 ;
+                third.name = "张翠山" ;
+                third.friend = "殷素素" ;
+
+                console.log( third );
+
+                delete  third.id ;
+
+                console.log( third );
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

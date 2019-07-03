@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style type="text/css" >
+            .wrapper { border: 1px solid blue ; width: 80% ;  margin: 30px auto ; }
+            .wrapper>* { margin: 10px ;}
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+
+            <h3>开发 Servlet 程序的四种方式</h3>
+
+            <a href="/dispatch">点我试试</a>
+            <a href="/dispatch?username=zhangsanfeng">点我试试</a>
+
+            <br>
+
+            <h5>使用GET方式提交表单</h5>
+            <form action="/dispatch" method="get" >
+                <input type="text" name="username" placeholder="请留下尊姓大名">
+                <input type="submit" value="提交">
+            </form>
+
+            <h5>使用POST方式提交表单</h5>
+            <form action="/dispatch" method="post" >
+                <input type="text" name="username" placeholder="请留下尊姓大名">
+                <input type="submit" value="提交">
+            </form>
+
+            <hr>
+
+            <a href="/general">点我试试</a>
+            <a href="/general?username=zhangsanfeng">点我试试</a>
+
+            <br>
+
+            <h5>使用GET方式提交表单</h5>
+            <form action="/general" method="get" >
+                <input type="text" name="username" placeholder="请留下尊姓大名">
+                <input type="submit" value="提交">
+            </form>
+
+            <h5>使用POST方式提交表单</h5>
+            <form action="/general" method="post" >
+                <input type="text" name="username" placeholder="请留下尊姓大名">
+                <input type="submit" value="提交">
+            </form>
+
+        </div>
+
+
+        <div class="wrapper">
+            <h3>请求</h3>
+            <a href="/request/parse.html">解析请求</a>
+            <a href="/request/param.html">请求参数</a>
+            <a href="/request/sign-up.html">注册</a>
+            <a href="/request/binary.html">提交字节数据</a>
+            <a href="/request/upload.html">上传文件</a>
+        </div>
+
+        <div class="wrapper">
+            <h3>响应</h3>
+            <p> <a href="/response/status.html">状态行</a> </p>
+            <p> <a href="/response/header.html">响应头</a> </p>
+            <p> <a href="/show/image" target="_blank">显示图片</a></p>
+            <p> 下载图片( http://localhost:8080/download/image )</p>
+            <p> <a href="/captcha">直接显示验证码图片</a></p>
+        </div>
+
+    </body>
+</html>

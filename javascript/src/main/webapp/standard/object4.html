@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                /*
+                let o = new Object();
+                o.id = 1001 ;
+                o.name = "张三丰" ;
+                o.gender = "男";
+                console.log( o );
+                */
+                // JSON : JavaScript Object Notation
+                let o = { id : 1001 , name : "张三丰" , gender : "男" };
+                console.log( o );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                //  Object.create( reference ) 创建一个新实例(instance)
+                //  新创建的实例的 __proto__ 属性值 是 reference 。
+                let x = Object.create( o );
+                console.log( x );
+                console.log( x.__proto__ === o ); // 新创建的实例 x 的 __proto__ 的取值与 o 是同一个实例
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+                // 因为 x 实例对应的原型上 有 id 、name 、gender ，所以 通过 x 也可以访问这些属性
+                console.log( x.id );
+                console.log( x.name );
+                console.log( x.gender );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                // 创建一个空实例( 实际就是一个什么都没有的空实例(instance)，连 __proto__ 属性都没有)
+                let pure = Object.create( null );
+                console.log( pure );
+                console.log( pure.__proto__ );
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+        <h5>Object.create( reference )</h5>
+
+        <hr>
+
+        <h5>Object.create( null )</h5>
+
+    </body>
+</html>

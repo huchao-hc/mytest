@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>派生选择器: 后代选择器、亲子选择器</title>
+
+        <style type="text/css">
+
+            /* 后代选择器 : 选择 class 中包含 form-container 的元素内部的 div 元素 */
+            .form-container  div {  margin: 10px ; border: 1px solid blue ;  padding: 10px ;  }
+
+            /* 亲子选择器 : 选择 .form-container 所匹配的元素内部的直接子元素，
+               使用 div 标记选择器确定选择 .form-container  的直接子元素中的 div 元素*/
+            .form-container>div { border: 1px solid red ; }
+            /* 亲子选择器 : 选择 .form-container 元素的直接子元素中的 form 元素*/
+            .form-container>form { border: 1px solid orange ; }
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="form-container">
+            <div>根据CSS优先级计算规则计算权重，权重高的最后生效( 就是通常所谓的优先级高 )</div>
+            <div>对于同一个元素来说，如果有两个不同的选择器都选择该元素，同时它们的权重相同时，则谁书写在后谁最后生效。</div>
+            <div>所谓最后生效，就是将其它选择器重复设置的样式统统覆盖掉。(历史是由后来人书写的) </div>
+            <form >
+                <div class="form-header">
+                    <div>登录</div>
+                </div>
+                <div class="form-row">
+                    <label for="username">用户名</label>
+                    <input type="text" name="username" id="username" >
+                </div>
+                <div class="form-row">
+                    <label for="password">密码</label>
+                    <input type="password" name="password" id="password" >
+                </div>
+                <div class="form-footer">
+                    <div>
+                        <input type="submit" value="登录">
+                    </div>
+                </div>
+            </form>
+            <div></div>
+        </div>
+
+    </body>
+</html>

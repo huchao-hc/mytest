@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style type="text/css">
+
+        .wrapper {
+            padding-top: 150px;
+            width: 40%;
+            margin: auto ;
+            text-align: center ;
+        }
+
+        .wrapper img {
+            width: 270px;
+            height: 129px ;
+        }
+
+        /* 后代选择器 ( 祖先 和 子孙 之间 使用 空格 隔开 )*/
+        .wrapper .search {
+
+            border: 1px solid #1d82ff;
+            overflow: hidden ; /* 当子元素是浮动时，使用 overflow: hidden ; 可以解决父元素塌陷问题 */
+        }
+
+        .wrapper .search .word {
+            float: left ;
+            width: 80% ;
+            /*background-color: yellow;*/
+        }
+
+        .wrapper .search .word input {
+            width: 80% ;
+            background-color: transparent ; /* 背景采用透明色 */
+            border : none ; /* 取消边框 */
+            outline: none ; /* 取消轮廓 */
+            margin-left: 5px ;
+            height: 32px ;
+        }
+
+        .wrapper .search .button {
+            float: right;
+            width: 20% ;
+            background-color: #3385ff;
+        }
+
+        .wrapper .search .button input {
+            background-color: transparent;
+            border: none ;
+            outline: none ;
+            width: 100% ;
+            color: #FFFFFF;
+            height: 36px ;
+        }
+        .mnav:visited {
+            float: left;
+
+            color: #333;
+            font-weight: 700;
+            line-height: 24px;
+            margin-left: 80px;
+            font-size: 13px;
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+
+<div  id="u1" align="right">
+    <a href="" class="mnav">新闻</a>
+    <a href="" class="mnav">hao123</a>
+    <a href="" class="mnav">地图</a>
+    <a href="" class="mnav">视频</a>
+    <a href="" class="mnav">贴吧</a>
+    <a href="" class="mnav">学术</a>
+    <a href="" class="mnav">登录</a>
+    <a href="" class="mnav">设置</a>
+</div >
+<div class="wrapper">
+
+    <img src="test2.gif" title="穿越时光 闳览博物" >
+
+    <form action="http://www.baidu.com/s">
+        <div class="search">
+                <span class="word">
+                    <input type="text" name="wd">
+                </span>
+                <span class="button">
+                        <input type="submit" value="百度一下">
+                </span>
+        </div>
+    </form>
+</div>
+
+<div class="button">
+
+</div>
+
+</body>
+</html>

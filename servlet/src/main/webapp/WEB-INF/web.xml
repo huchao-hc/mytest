@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!-- "注册" -->
+    <servlet>
+        <servlet-name>primitive</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.core.PrimitiveServlet</servlet-class>
+    </servlet>
+
+    <!-- "发布" -->
+    <servlet-mapping>
+        <servlet-name>primitive</servlet-name>
+        <url-pattern>/ps</url-pattern>
+        <url-pattern>/primitive</url-pattern>
+        <url-pattern>/primitive/servlet</url-pattern>
+        <url-pattern>/primitive/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>welcome</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.core.PrimitiveServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>welcome</servlet-name>
+        <url-pattern>/welcome/*</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>primary</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.core.PrimaryServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>primary</servlet-name>
+        <url-pattern>/primary</url-pattern>
+        <url-pattern>/primary/*</url-pattern>
+        <url-pattern>/primary/servlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <servlet>
+        <servlet-name>passive</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.lifecycle.PassiveServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>passive</servlet-name>
+        <url-pattern>/passive</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>positive</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.lifecycle.PositiveServlet</servlet-class>
+        <!-- load-on-startup 表示容器是否在加载当前Web应用时完成对当前servlet的初始化操作-->
+        <!-- 当 指定 load-on-startup 为 大于等于零的整数 时，表示容器加载当前Web应用时就完成对当前servlet的初始化操作 -->
+        <!-- 而 load-on-startup  默认值是 -1 ，表示容器加载当前Web应用时不会初始化当前servlet -->
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>positive</servlet-name>
+        <url-pattern>/positive</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>positiveServlet</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.lifecycle.PositiveServlet</servlet-class>
+        <!-- load-on-startup  指定的数字越小，越优先初始化 -->
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>positiveServlet</servlet-name>
+        <url-pattern>/positive/servlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+
+    <servlet>
+        <servlet-name>configuration</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.config.ConfigurationServlet</servlet-class>
+
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+
+        <init-param>
+            <param-name>mime</param-name>
+            <param-value>text/html</param-value>
+        </init-param>
+
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>configuration</servlet-name>
+        <url-pattern>/config</url-pattern>
+    </servlet-mapping>
+
+    <!-- ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ -->
+    <servlet>
+        <servlet-name>multipleUploadServlet</servlet-name>
+        <servlet-class>cn.edu.ecut.servlet.request.MultipleUploadServlet</servlet-class>
+
+        <!-- 指定初始化参数 -->
+        <init-param>
+            <param-name>path</param-name>
+            <param-value>D:/upload</param-value>
+        </init-param>
+
+        <!-- 如果需要使用 Servlet 3.0 提供的文件上传支持则必须指定 multipart-config-->
+        <multipart-config></multipart-config>
+
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>multipleUploadServlet</servlet-name>
+        <url-pattern>/multiple/upload</url-pattern>
+    </servlet-mapping>
+    
+</web-app>

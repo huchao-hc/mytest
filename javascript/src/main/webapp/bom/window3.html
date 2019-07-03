@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: window</title>
+
+        <script type="text/javascript" >
+            ( function () {
+
+                let date = new Date();
+                date.setFullYear( 2019 , 5 , 13 );
+                date.setHours( 14 , 24 , 0 , 0 );
+
+                let endTime = date.getTime();
+
+                let delay = 5000 ;
+
+                let handler = () => {
+                    let time = Date.now() ;
+                    console.log( time  , endTime ) ; // 输出当前时间
+                    if( time < endTime ) {
+                        window.setTimeout( handler , delay); // 延迟 delay 毫秒后再次执行 handler 操作
+                    }
+                };
+
+                // 延迟 delay 毫秒后执行一次 handler 操作
+                let timer = window.setTimeout( handler , delay ); // handler 表示一个操作，delay 表示延迟时间
+                console.log( timer , typeof( timer ) );
+
+                let timer2 = window.setTimeout( handler , delay );
+                console.log( timer2 , typeof( timer2 ) );
+                window.clearTimeout( timer2 ); // 因为将 timer2 对应的 延迟操作清除，所以 timer2 对应的延迟操作不再执行
+
+            })();
+        </script>
+    </head>
+    <body>
+
+        <h5>setTimeout( handler , delay ) 用于延迟执行某项操作，handler 表示一个操作，delay 表示延迟时间</h5>
+        <h5>clearTimeout( timer ) 用于清除一个延迟操作</h5>
+
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: window</title>
+
+        <style type="text/css" >
+            body { margin: 0px ; padding: 0px ; }
+            .wrapper { margin: 15px ; border: 1px solid blue ; }
+            .wrapper>div { margin: 15px ; padding: 15px ; text-align: center ; height: 200px ; line-height: 200px ; font-size: 100px ;  }
+            .wrapper>.odd { background: #efefef ; }
+            .wrapper>.even { background: #ffff00 ; }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper"></div>
+
+    </body>
+
+    <script type="text/javascript" >
+        ( function () {
+
+            console.log( "innerWidth : " ,  window.innerWidth );
+            console.log( "innerHeight : " , window.innerHeight );
+            console.log( "outerWidth : " , window.outerWidth );
+            console.log( "outerHeight : " , window.outerHeight );
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+            // 获取 匹配于 .wrapper 选择器的首个元素
+            let wrapper = document.querySelector( ".wrapper" );
+
+            // 使用 立即执行函数表达式 为 wrapper 元素添加一组子元素
+            ( () => {
+                if( wrapper ) {
+                    for ( let i = 1 ; i <= 50 ; i++ ) {
+                        // 创建一个 div 元素
+                        let div = document.createElement("div"); // <div> </div>
+                        div.classList.add( ( i & 1 ) === 0 ? "even" : "odd" );
+                        div.innerHTML = i ; // <div> 10 </div>
+                        wrapper.appendChild(div); // 将新创建的 div 元素追加到 wrapper 元素内部的末尾
+                    }
+                }
+            } )();
+
+            console.log( "wrapper offset height : " , wrapper.offsetHeight ) ;
+
+            let type = "click" ; // click 表示鼠标左键单击事件, dblclick 表示鼠标左键双击事件
+
+            let listener = (event) => {
+                console.log( event );
+                // window.scrollBy( 0 , 100 ); // 让当前页面向下滚动
+                window.scrollTo( 0 , 12000 );
+            };
+
+            let useCapture = false ; // 是否在捕获阶段处理事件，false 表示不再捕获阶段处理(即在冒泡阶段处理)
+
+            // 为 wrapper 绑定指定类型( type )的事件的事件监听器 ( listener )
+            wrapper.addEventListener( type , listener , useCapture );
+
+        })();
+    </script>
+</html>

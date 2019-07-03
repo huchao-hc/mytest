@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象 : Error </title>
+
+        <script type="text/javascript">
+            ( function () {
+
+                function divide( a , b ) {
+                    if( typeof( a ) !== "number" || typeof(b) !== "number" ) {
+                        // 抛出 Error 实例
+                        throw  new Error( "参与运算的两个值不是数字类型" );
+                    }
+
+                    if( b === 0 ) {
+                        throw  new Error( "除数不能为零" );
+                    }
+
+                    return a / b ;
+
+                }
+
+                let result = divide( 100 , 2 );
+                console.log( result );
+                console.log( "" );
+
+                console.log( "TypeError.prototype : " , TypeError.prototype );
+                console.log( "RangeError.prototype : " , RangeError.prototype );
+                console.log( "ReferenceError.prototype : " , ReferenceError.prototype );
+                console.log( "SyntaxError.prototype : " , SyntaxError.prototype );
+                console.log( "EvalError.prototype : " , EvalError.prototype );
+                console.log( "URIError.prototype : " , URIError.prototype );
+
+                console.log( "" );
+
+                // 自定义 Error  ( ES 6 )
+                class ArithmeticError extends Error {
+                    constructor(msssage) {
+                        super( msssage ) ;
+                    }
+                }
+
+                throw  new ArithmeticError( "测试算术异常" );
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

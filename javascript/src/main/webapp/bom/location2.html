@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: location </title>
+
+        <style type="text/css" >
+            body { margin: 0px ; padding: 0px ; }
+            .wrapper { border: 1px solid blue ; margin: 15px ; }
+            .wrapper>button {
+                margin: 15px 0px 15px 15px ;
+                border: 1px solid #dedede ;
+                outline: none ;
+                background: #efefef ;
+                font-size: 20px ;
+            }
+            .wrapper>button:hover { background: yellow ; }
+
+            .wrapper button:first-child { color: blue ; }
+            .wrapper button:first-child + button { color: green ; }
+            .wrapper button:last-child { color: red ; }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="wrapper">
+            <button type="button">reload</button>
+            <button type="button">replace</button>
+            <button type="button">assign</button>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" >
+        ( function () {
+
+            for( let x in location ) {
+                console.log( x , location[ x ] ) ;
+            }
+
+            console.log( "" );
+
+            console.log( new Date().toLocaleString() );
+
+            console.log( "" );
+
+            let reloadButton = document.querySelector( ".wrapper button:first-child" );
+            // let listener = () => {   location.reload();  };
+            reloadButton.addEventListener( "click" , () =>  location.reload() , false );
+
+            let replaceButton = document.querySelector( " .wrapper button:first-child + button" );
+            replaceButton.addEventListener( "click" , () => location.replace( "http://www.ecut.edu.cn" ) , false );
+
+            let assignButton = document.querySelector( " .wrapper button:last-child" );
+            assignButton.addEventListener( "click" , () => location.assign( "http://www.ecut.edu.cn" ) , false );
+            // assignButton.addEventListener( "click" , () => location.href = "http://www.ecut.edu.cn" , false );
+
+        })();
+    </script>
+</html>

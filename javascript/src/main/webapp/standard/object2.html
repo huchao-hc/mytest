@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( Object.prototype );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                let o = new Object();
+                console.log( o.constructor );
+                // hasOwnProperty 判断指定对象 o 中是否包含 指定名称 name 的属性
+                console.log(  "hasOwnProperty( 'name' )", o.hasOwnProperty( "name" ) );
+                o.name = "曾阿牛" ;
+                console.log(  "hasOwnProperty( 'name' )", o.hasOwnProperty( "name" ) );
+                // 从 指定对象 o 上删除 指定名称 name 的属性
+                delete o.name ;
+                console.log(  "hasOwnProperty( 'name' )", o.hasOwnProperty( "name" ) );
+
+                o.username = "zhangwuji" ;
+                o.nickname = "曾阿牛" ;
+                o.gender = "男" ;
+                console.log(  "hasOwnProperty( 'username' )", o.hasOwnProperty( "username" ) );
+                // propertyIsEnumerable 判断 指定实例 o 中的指定属性 username 是否可以被 枚举
+                console.log(  "propertyIsEnumerable( 'username' )", o.propertyIsEnumerable( "username" ) );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                for( let x in o ){
+                    console.log( x );
+                }
+
+                console.log( "toString : " , o.toString() );
+                console.log( "toLocaleString : " , o.toLocaleString() );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                // 返回值为该 实例( instance ) 的原始值
+                let x = o.valueOf();
+                console.log( x , typeof( x ) );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+                console.log( o , typeof( o ) );
+
+                console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+                let s = new String( "hello,world" );
+                console.log( s , typeof( s ) );
+
+                let p = s.valueOf();
+                console.log( p , typeof( p ) );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+        <h3>通过 对象(class)的原型(prototype) 定义的函数，在对象(class)的实例(instance)中都可以使用</h3>
+        <hr>
+        <h3>Object对象(class)的原型中定义的常用函数:</h3>
+        <h5>hasOwnProperty( propertyName ) </h5>
+        <h5>propertyIsEnumerable( propertyName ) </h5>
+        <h5>toString() </h5>
+        <h5>toLocaleString() </h5>
+        <h5>valueOf() 返回该当前实例( instance ) 的原始值 </h5>
+
+    </body>
+</html>

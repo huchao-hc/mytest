@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>派生选择器: 并联选择器、兄弟选择器</title>
+
+        <style type="text/css">
+
+            /* 并联选择器 : 选择所有匹配于 .items 和 .blocks 的元素，与元素对应的标记无关 */
+            .items , .blocks { border: 1px solid blue ; }
+
+            /* 因为 .items 之前使用 ol 标记选择器 ，因此 这里仅仅选择 ol 的 class 中包含 items 的元素
+                千万注意，ol 和 .items 之间、div 和 .blocks 之间不能有任何字符，必须紧挨着写 */
+            ol.items , div.blocks { color: blue; font-weight: bold ;  }
+
+            /*使用 id selector 选择 俞岱岩 */
+            #third { background: #dedede ; }
+            /* 相邻兄弟选择器 使用 "+" 连接 */
+            #third+li { background: #FFFF00; }
+
+            /* 所有兄弟选择器 */
+            #fifth~li { background: #ffe8ac; }
+
+            #three { background: #FF8C00 ; }
+            #three+div { text-align: center ; font-size: 30px ; }
+
+            #three~div { background: #FFFF00 ; }
+            #three~p { background: #b0d0ff; }
+
+
+        </style>
+
+    </head>
+    <body>
+
+        <ol class="items">
+            <li id="first">宋远桥</li>
+            <li id="second">俞莲舟</li>
+            <li id="third">俞岱岩</li>
+            <li id="fourth">张松溪</li>
+            <li id="fifth">张翠山</li>
+            <li id="sixth">殷梨亭</li>
+            <li id="seventh">莫声谷</li>
+        </ol>
+
+        <hr>
+
+        <div class="blocks">
+            <p id="one">宋远桥</p>
+            <div id="two">俞莲舟</div>
+            <p id="three">俞岱岩</p>
+            <div id="four">张松溪</div>
+            <p id="five">张翠山</p>
+            <p id="six">殷梨亭</p>
+            <div id="seven">莫声谷</div>
+        </div>
+
+        <hr>
+
+        <ul class="items">
+            <li>袁世凯</li>
+            <li>叶赫那拉-慈溪</li>
+        </ul>
+
+        <hr>
+
+        <footer class="blocks">
+            <h3>hello</h3>
+            <h3>world</h3>
+        </footer>
+
+    </body>
+</html>

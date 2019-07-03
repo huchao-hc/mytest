@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+
+        <style type="text/css">
+            .wrapper {
+                border: 1px solid #dedede;
+                width: 80% ;
+                margin: auto ;
+                padding: 15px ;
+            }
+            .wrapper div { border-bottom: 1px solid #dedede ; }
+            .wrapper div:last-child { border-bottom: none ; }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <form action="/user/sign/up" method="post" autocomplete="off" >
+                <div>
+                    <input type="text" name="username" placeholder="请输入用户名">
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="输入密码">
+                </div>
+                <div>
+                    <input type="password" name="confirm" placeholder="请确认密码">
+                </div>
+                <div>
+                    <input type="submit" value="提交" >
+                </div>
+            </form>
+        </div>
+
+    </body>
+
+    <script type="text/javascript" src="/ajax/ajax-support.js"></script>
+
+    <script type="text/javascript">
+        ( ()=>{
+            let input = document.querySelector( ".wrapper input[name=username]" );
+
+            let blurFun = ()=>{
+                console.log( "失去焦点" );
+                let value = input.value ;
+                console.log( value );
+                if( value ) {
+
+                    let url = "/user/check/username" ;
+                    let data = "username=" + value ;
+                    let success = ( resp )=>{
+                        let body = resp.body ; // 获取响应体
+                        console.log( body );
+                        let o = JSON.parse( body );
+                        console.log( o );
+
+                        let p = input.parentNode ;  // input  父元素
+                        let reference = p.nextElementSibling ;  // input 的父元素的相邻下一个元素
+                        let g = p.parentNode ; // input 的父元素的父元素
+
+                        let newNode = document.createElement( "div" );
+                        newNode.classList.add( "message" );
+                        newNode.innerHTML = o.message ;
+                        newNode.style.color = o.flag ? "green" : "red" ;
+
+                        g.insertBefore( newNode, reference );
+                    }
+                    // 发送异步请求
+                    X.post( url , data , success );
+
+                } else {
+                    console.log( "空字符串" );
+
+                    let p = input.parentNode ;  // input  父元素
+                    let reference = p.nextElementSibling ;  // input 的父元素的相邻下一个元素
+                    let g = p.parentNode ; // input 的父元素的父元素
+
+                    let newNode = document.createElement( "div" );
+                    newNode.classList.add( "message" );
+                    newNode.innerHTML = "用户名不能为空" ;
+                    newNode.style.color = "red" ;
+
+                    g.insertBefore( newNode, reference );
+
+                }
+
+                input.addEventListener( "focus" , focusFun , false );
+
+            }
+            input.addEventListener( "blur" , blurFun , false );
+
+            let focusFun = ()=>{
+                console.log( "获得焦点" );
+                let p = input.parentNode ;  // input  父元素
+                let reference = p.nextElementSibling ;  // input 的父元素的相邻下一个元素
+                let g = p.parentNode ; // input 的父元素的父元素
+                if( reference.classList.contains( "message" ) ) {
+                    g.removeChild(reference);
+                }
+            };
+
+        } )();
+    </script>
+
+</html>

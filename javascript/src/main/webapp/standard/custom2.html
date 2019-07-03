@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>自定义对象</title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                function Student () {
+                    // 在对象内部通过 this 关键字绑定 属性 或 函数 属于某个实例
+                    this.add = function( a , b ){
+                        return a + b ;
+                    }
+                }
+
+                // 通过对象的原型绑定的 属性 或 函数 属于某个实例
+                Student.prototype.divide = function ( a , b ) {
+                    return a / b ;
+                }
+
+                // 直接通过 对象(class) 绑定的 属性 或 函数 属于 对象(class) ，不属于实例(instance)
+                Student.school = "大肥羊学校" ;
+                Student.show = function() {
+                    console.log( Student.school ) ; // 访问静态属性需要使用 "对象名称.属性名"
+                }
+
+                Student.show(); // 调用静态函数需要使用 "对象名称.属性名"
+
+                // Student.add( 100 , 200 ); // TypeError: Student.add is not a function
+                // Student.divide( 100 , 2 ) ; // TypeError: Student.divide is not a function
+                let s = new Student();
+                console.log( s.add( 100 , 200 ) ) ;
+                console.log( s.divide( 100 , 2 ) );
+                console.log( s.school ); // undefined
+
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

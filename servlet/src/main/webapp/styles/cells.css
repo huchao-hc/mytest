@@ -1,0 +1,50 @@
+@charset "UTF-8" ;
+
+.x-row {
+    display: block; /* 以块元素形式显示 .x-row 匹配的元素 */
+    overflow: hidden ; /* 解决所有子元素都浮动后导致的父元素塌陷问题 */
+}
+
+.x-cell-1 ,
+.x-cell-2 ,
+.x-cell-3 ,
+.x-cell-4 ,
+.x-cell-5 ,
+.x-cell-6 ,
+.x-cell-7 ,
+.x-cell-8 ,
+.x-cell-9 ,
+.x-cell-10 ,
+.x-cell-11 { float: left ; min-height: 1px ; }
+
+.x-cell-1 { width : 8.333333333%  ; }
+.x-cell-2 { width : 16.666666667%  ; }
+.x-cell-3 { width : 25%  ; }
+.x-cell-4 { width : 33.333333333%  ; }
+.x-cell-5 { width : 41.666666667%  ; }
+.x-cell-6 { width : 50%  ; }
+.x-cell-7 { width : 58.333333333%  ; }
+.x-cell-8 { width : 66.666666667%  ; }
+.x-cell-9 { width : 75%  ; }
+.x-cell-10 { width : 83.333333333%  ; }
+.x-cell-11 { width : 91.666666667%  ; }
+
+
+.x-cell-5-1 ,
+.x-cell-5-2 ,
+.x-cell-5-3 ,
+.x-cell-5-4 { float: left ; min-height: 1px ; }
+
+.x-cell-5-1 { width: 20% ; }
+.x-cell-5-2 { width: 40% ; }
+.x-cell-5-3 { width: 60% ; }
+.x-cell-5-4 { width: 80% ; }
+
+.x-boundary {
+    display: block ;
+    clear: both ;
+    height: 1px ;
+    width : 100% ;
+    border: none ;
+    background: transparent ;
+}

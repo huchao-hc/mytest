@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // 通过 Array.prototype 为 Array 扩展了一个名称为 peek 的函数
+                Object.defineProperty( Array.prototype , "peek" , {
+                        configurable : false , enumerable : false , writable : false ,
+                        value : function () {
+                            return this[ this.length - 1 ] ;
+                        }
+                    }
+                );
+                /*
+                Array.prototype.peek = function(){
+                    return this[ this.length - 1 ] ;
+                }
+                */
+
+                let stack = [] ;
+                console.log( stack.toString() );
+
+                // 将 数组实例 当作 栈来使用
+                stack.push( "唐三藏" );
+                stack.push( "孙悟空" );
+                stack.push( "猪悟能" );
+                stack.push( "沙悟净" );
+
+                console.log( stack.toString() );
+                console.log( "" );
+
+                let top = stack.peek(); // 使用自定义的函数
+                console.log( "peek : " , top );
+                console.log( "after peek : " , stack.toString() );
+                console.log( "" );
+
+                top = stack.pop() ; // 获取栈顶元素并将该元素从栈顶删除
+                console.log( "pop : " , top );
+                console.log( "after peek : " , stack.toString() );
+                console.log( "" );
+
+                // 将数组实例当作队列使用
+                let queue = [] ;
+                console.log( queue.toString() );
+                queue.push( "宋江" , "武松" , "鲁智深" , "林冲" );
+                console.log( queue.toString() ); // 以字符串形式的左侧为队列头部，以右侧为队列尾部
+
+                let head = queue.shift();
+                console.log( "head : " + head );
+                console.log( queue.toString() ); // 以字符串形式的左侧为队列头部，以右侧为队列尾部
+                head = queue.shift();
+                console.log( "head : " + head );
+                console.log( queue.toString() ); // 以字符串形式的左侧为队列头部，以右侧为队列尾部
+                console.log( "" );
+
+
+                let deque = [] ;
+                // 以字符串形式的右侧为队列头部，以左侧为队列尾部
+                deque.unshift( "刘备" ); // 在数组头部添加元素，相当于在队列尾部添加元素
+                deque.unshift( "刘封" );
+                deque.unshift( "刘禅" );
+                console.log( deque.toString() );
+                // 获取并移除队列头部元素 ( 最右侧那个才是头部元素 )
+                head = deque.pop();
+                console.log( "head : " + head );
+                console.log( deque.toString() );
+
+                head = deque.pop();
+                console.log( "head : " + head );
+                console.log( deque.toString() );
+
+                // 以字符串形式的左侧为队列头部，以右侧为队列尾部
+                deque.push( "刘伯温" );
+                deque.push( "刘X奇" );
+                console.log( deque.toString() );
+                head = deque.shift();
+                console.log( "head : " + head );
+                console.log( deque.toString() );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+        <h5> arrayInstance.push 可以在数组末尾追加元素 </h5>
+        <h5> arrayInstance.pop 可以获取并移除在数组末尾的元素 </h5>
+        <h5> arrayInstance.unshift 可以在数组头部插入元素 </h5>
+        <h5> arrayInstance.shift 可以获取并移除数组头部的元素 </h5>
+
+    </body>
+</html>

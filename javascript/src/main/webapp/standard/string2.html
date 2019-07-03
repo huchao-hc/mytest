@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: String </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // 创建 String 对象(class) 的实例(instance) 后，实例内部封装了原始值
+               let s = new String( "风里雨里，我在东理等你。云里雾里，我在梦中等下课" );
+               console.log( s , typeof( s ) );
+               let p = s.valueOf();
+               console.log( p , typeof( p ));
+
+               let index = s.indexOf( "里" );
+               console.log( index , s.charAt( index ) );
+
+               let z = s.includes( "里" );
+               console.log( z );
+
+               console.log( "" );
+
+               let sub = s.slice( 4 ) ; // 包括 4 对应的字符
+               console.log( sub );
+
+               sub = s.slice( 5 ,  11 ); // [ 5 , 11 )
+               console.log( sub );
+
+               console.log( "" );
+
+               s = "\u98ce\u91cc\u96e8\u91cc\uff0c\u6211\u5728\u4e1c\u7406\u7b49\u4f60" ;
+               console.log( s );
+               let u = s.normalize( "NFC" );
+               console.log( u );
+
+               console.log( "" );
+
+               let source = "ecut" ;
+
+               let re = source.repeat( 5 );
+               console.log( re );
+
+               let pe = source.padEnd( 15 , "hello" );
+               console.log( pe );
+
+                let ps = source.padStart( 15 , "hi" );
+                console.log( ps );
+
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // Object 是 JavaScript 语言中已经预先定义好的对象( class )
+                // 用于创建 Object 对象( class ) 的构造函数是 Function ，也就是通过 Function 函数创建了 Object 对象(class)
+                // 这里的 Object  对象( class ) 类似于 Java 语言中中的 Object 类，而 Function 则类似于 Java 语言中的 Class 类
+                console.log( "Object.constructor : " ,  Object.constructor ) ; // 输出 Object 对象 ( class ) 的构造函数
+
+                // 原型( prototype )
+                console.log( "Object.prototype : " , Object.prototype ) ; // 输出 Object 对象 ( class ) 的原型
+                // 用于创建 Object 对象(class) 的实例 ( instance ) 的构造函数是 Object ， 也就是用于创建 Object 对象(class) 的实例( instance ) 的函数
+                console.log( "Object.prototype.constructor : " , Object.prototype.constructor ) ; // 输出 Object 实例 ( instance ) 的构造函数
+
+                let o = new Object(); // 实际上是在调用 Object.prototype.constructor 对应的构造函数
+                console.log( o ) ;
+                // 如果已经创建某个对象(class)的实例(instance)，比如已经创建 Object 对象(class)的实例(instance)
+                // 则可以通过 实例(instance) 的 "__proto__" 属性来获取该实例(instance)对应的对象(class)的原型(prototype)
+                console.log( o.__proto__ );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+        <h3>比着 "葫芦" ( prototype ) 画 "瓢" (class) </h3>
+
+        <h3>Object是一个对象(class) ，不是一个实例(instance)</h3>
+        <h5>Object对象(class)首先是个函数，是通过 Function 对象(class)来构造的，因此 Object.constructor 返回 Function</h5>
+        <h5>任何对象(class)都有自己的原型(prototype)，通过对象(class)的原型(prototype)可以定义一个对象(class)的实例(instance)中所包含的属性和函数</h5>
+        <h5>Object对象(class)的实例(instance) 是通过 Object 对象(class)本身的构造函数来构造的，所以 Object.prototype.constructor 返回 Object</h5>
+
+    </body>
+</html>

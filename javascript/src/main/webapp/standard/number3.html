@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Number </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "测试 Number 实例( instance ) 的函数:" );
+                console.log( "" );
+
+                let o = new Number( "9527.789" );
+                console.log( "toLocaleString : " ,  o.toLocaleString() );
+                console.log( "toString : " ,  o.toString() );
+                console.log( o , typeof( o ) );
+                console.log( "" );
+
+                let n = o.valueOf(); // 获取 o 所引用的实例中的原始值
+                console.log( n , typeof( n ) );
+
+                console.log( "" );
+
+                console.log( "toPrecision() : " , o.toPrecision() );
+                console.log( "toPrecision(10) : " , o.toPrecision(10) );
+                // console.log( "toPrecision(101) : " , o.toPrecision(101) ); // RangeError
+                console.log( "toPrecision(5) : " , o.toPrecision(5) );
+                console.log( "toPrecision(4) : " , o.toPrecision(4) );
+                console.log( "toPrecision(2) : " , o.toPrecision(2) );
+
+                console.log( "" );
+
+                console.log( "toExponential() : "  , o.toExponential() );
+                console.log( "toExponential(10) : "  , o.toExponential(10) );
+                console.log( "toExponential(5) : "  , o.toExponential(5) );
+                console.log( "toExponential(2) : "  , o.toExponential(2) );
+                console.log( "toExponential(0) : "  , o.toExponential(0) );
+                // console.log( "toExponential(-1) : "  , o.toExponential(-1) ); // RangeError
+
+                console.log( "" );
+
+                console.log( "toFixed() : " , o.toFixed() );
+                console.log( "toFixed(10) : " , o.toFixed(10) );
+                console.log( "toFixed(5) : " , o.toFixed(5) );
+                console.log( "toFixed(2) : " , o.toFixed(2) );
+                console.log( "toFixed(0) : " , o.toFixed(0) );
+                // console.log( "toFixed(-1) : " , o.toFixed(-1) ); // RangeError
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

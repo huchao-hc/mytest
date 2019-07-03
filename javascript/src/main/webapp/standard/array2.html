@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "Array对象(class)的构造(constructor)" );
+
+                let firstArray = new Array();
+                console.log( firstArray );
+                console.log( firstArray.length );
+                console.log( "" );
+
+                // 如果构造函数的实参只有一个，并且是一个非负整数，则这个整数表示默认的数组长度
+                let secondArray = new Array( 1 ); // 注意，这里可以是 1.0 ，因为 1.0 可以当作 整数 1 来使用
+                console.log( secondArray );
+                console.log( secondArray.length );
+                console.log( "" );
+
+                secondArray[ 0 ] = 100 ;
+                secondArray[ 1 ] = 200 ;
+                console.log( secondArray );
+                console.log( secondArray.length );
+                console.log( "" );
+
+                secondArray.length = 10 ;
+                console.log( secondArray );
+                console.log( secondArray.length );
+
+                // 从某个实例中获取指定属性的 描述信息
+                let descriptor = Object.getOwnPropertyDescriptor( secondArray , "length" );
+                console.log( descriptor );
+
+                console.log( "" );
+
+                // 如果构造函数的实参是多个数字类型参数，则直接创建一个包含了这些数字的数组实例(instance)
+                let thirdArray = new Array( 100 , 200 , 300 , 400  );
+                console.log( thirdArray );
+                console.log( "" );
+
+                // 如果构造函数的实参是非数字类型，则直接创建一个包含了这些数据的数组实例(instance)
+                let fourthArray = new Array( "唐僧" , "至尊宝" , "至尊玉" , "秦汉" , "秦祥林" ,"春十三娘" , "白晶晶" , "二当家" , "紫霞" );
+                console.log( fourthArray );
+                console.log( "" );
+
+                // 直接使用 JSON 格式字符串 声明 的 数组实例 的原型也是 Array.prototoype
+                let fifthArray = [ "唐僧" , "至尊宝" , "至尊玉" , "秦汉" , "秦祥林" ,"春十三娘" , "白晶晶" , "二当家" , "紫霞"  ];
+                console.log( fifthArray );
+                console.log( fifthArray.__proto__ === Array.prototype );
+
+                /* ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~ */
+
+                console.log( "" );
+
+                const surnames = [ "曾" , "张" , "胡" , "常" , "杨" ];
+                const names1 = [ "雨" , "娴" , "轩" , "子" ] ;
+                const names2 = [ "娴" , "涵" , "浩" , "杰" ] ;
+
+                let source = "[" ;
+                for (let i = 0; i < 10 ; i++) {
+                    let x = Math.floor( Math.random() * surnames.length ) ;
+                    let y = Math.floor( Math.random() * names1.length ) ;
+                    let z = Math.floor( Math.random() * names2.length ) ;
+                    source += "\"" +  surnames[ x ] + names1[ y ] + names2[ z ] + "\"" ;
+                    if( i < 9 ) {
+                        source += " , " ;
+                    }
+                }
+                source += "]";
+                console.log( source , typeof( source ) );
+
+                let o = JSON.parse( source );
+                console.log( o , typeof( o ) );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

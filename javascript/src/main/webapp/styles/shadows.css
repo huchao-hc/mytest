@@ -1,0 +1,5 @@
+@charset "UTF-8" ;
+
+.lighter-shadow {
+    box-shadow: 0 0 1px 1px blue inset;
+}

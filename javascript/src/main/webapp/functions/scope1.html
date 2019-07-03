@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>作用域</title>
+
+        <script type="text/javascript">
+
+            // 直接书写在  script 元素内部的 变量 和 函数 都属于 全局对象
+
+            function hello() {
+                console.log( "hello , " ,  name ); // name 是已经在 window 对象中声明的属性
+                name = "张三丰" ;
+                console.log( "hello , " , name  );
+            }
+
+            console.log( name ); // name 是已经在 window 对象中声明的属性
+            hello();
+            console.log( name );
+
+            /*
+            // 在 客户端 JavaScript 中，最顶层的对象( 全局对象 ) 就是浏览器窗口
+            // 浏览器窗口对应的对象就是 window
+            for( let key in window ){
+                // JavaScript 中比较字符串的内容可以使用 ==
+                if( key == "hello" ) {
+                    console.log( key );
+                    console.log( window[ key ] );
+                }
+            }
+            */
+
+        </script>
+
+    </head>
+    <body>
+
+        <div>
+            直接书写在 &lt;script&gt; 和 &lt;/script&gt; 之间的 函数 属于全局对象，称作全局函数。
+        </div>
+
+        <div>
+            为了避免污染全局对象，应该尽可能不要在 全局代码 中 书写 函数 和 变量。
+        </div>
+
+    </body>
+</html>

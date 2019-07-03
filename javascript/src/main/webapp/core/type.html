@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>数据类型</title>
+
+        <script type="text/javascript">
+
+            var x ;
+            console.log( x , typeof(x) );
+
+            x = 100 ;
+            console.log( x , typeof(x) );
+
+            x = 100 / 0 ;
+            console.log( x , typeof(x) );
+
+            x = "abc" / 0 ;
+            console.log( x , typeof(x) );
+
+            x = 3.14 ;
+            console.log( x , typeof(x) );
+
+            x = "hello" ;
+            console.log( x , typeof(x) );
+
+            x = 'world' ;
+            console.log( x , typeof(x) );
+
+            x = true ;
+            console.log( x , typeof(x) );
+
+            x = null ;
+            console.log( x , typeof(x) ); // null , object
+
+            console.log( " ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~  ~ ~ ~ " );
+
+            var o = new Object();
+            console.log( o , typeof(o) );
+            o = new Date();
+            console.log( o , typeof(o) );
+            o = new String( "hello" );
+            console.log( o , typeof(o) );
+
+            // JavaScript 中的变量 可以接受各种类型的值，将一个函数作为值赋值给变量
+            var f = function(){
+            }
+
+            console.log( f , typeof(f) );
+
+        </script>
+
+    </head>
+    <body>
+
+        <h5>请查看浏览器终端中的输出</h5>
+
+        <hr>
+
+        <h5>JavaScript 数据类型</h5>
+        <ul>
+            <li>
+                undefined
+                <ul>
+                    <li>取值只有一个，即 undefined </li>
+                </ul>
+            </li>
+
+            <li>
+                null
+                <ul>
+                    <li>取值可以是 null  </li>
+                </ul>
+            </li>
+
+            <li>
+                boolean
+                <ul>
+                    <li>取值可以是 true  </li>
+                    <li>取值可以是 false  </li>
+                </ul>
+            </li>
+
+            <li>
+                number
+                <ul>
+                    <li>取值可以是 整数 、浮点数 、Infinity 、-Infinity 、NaN</li>
+                </ul>
+            </li>
+
+            <li>
+                string
+                <ul>
+                    <li>直接使用 ""  或 '' 显式书写的字面量 </li>
+                </ul>
+            </li>
+
+        </ul>
+
+        <hr>
+
+        <ul>
+            <li>object</li>
+            <li>function</li>
+        </ul>
+
+
+    </body>
+</html>

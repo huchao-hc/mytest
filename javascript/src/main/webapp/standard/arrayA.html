@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+    </head>
+    <body>
+
+        <div>
+            <h5>Array.isArray( instance ) 可以判断 instance 所表示的是否是一个 数组实例</h5>
+            <h5>Array.from( instance ) 从一个类似数组或可迭代的对象(instance)中创建一个新的、浅拷贝的数组实例 </h5>
+            <h5>Array.of( ...items )  </h5>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( function(){
+
+            let names = [ "令狐冲" , "张无忌" , "杨过" , "风清扬" , "郭靖" , "乔峰" ];
+            console.log( names );
+            console.log( Array.isArray( names ) );
+            console.log( Array.prototype.isPrototypeOf( names ) );
+            console.log( "" );
+
+            let elements = document.querySelectorAll( "*" );
+            console.log( elements );
+            console.log( Array.isArray( elements ) );
+            console.log( Array.prototype.isPrototypeOf( elements ) );
+            console.log( "" );
+
+            let array = Array.from( elements );
+            console.log( array );
+            console.log( Array.isArray( array ) );
+            console.log( "" );
+
+            let numbers = [ 2 , 4 , 6 , 8 , 10 ] ;
+            console.log( numbers );
+            numbers = Array.from( numbers , e => e - 1  ); // 注意第二个参数是使用箭头函数声明的匿名函数
+            console.log( numbers );
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+            let x = Array.of( 7 );
+            console.log( x );
+
+            x = Array.of( 7 , 8 , 9 );
+            console.log( x );
+
+            // 是否可以将 Array.of( elements )  将 elements 转换为一个数组实例 ？
+
+            console.log( "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~" );
+
+            // 使用 Array 构造函数创建 数组实例
+            let y = new Array( 7 ) ;
+            console.log( y );
+
+            // 将 Array 当作普通函数使用
+            let z = Array( 10 ) ;
+            console.log( z );
+
+        })();
+    </script>
+</html>

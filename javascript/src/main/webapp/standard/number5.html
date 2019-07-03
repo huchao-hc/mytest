@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Number </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let n = 100 ;
+                console.log( n , typeof n ) ;
+                console.log( "" ) ;
+
+                // 当作构造函数使用
+                let o = new Number( n );
+                console.log( o , typeof o ) ;
+                console.log( "" ) ;
+
+
+                let s = "1234.56789" ;
+                console.log( s , typeof s ) ;
+
+                // 当作普通函数使用
+                let x = Number( s );
+                console.log( x , typeof x ) ;
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

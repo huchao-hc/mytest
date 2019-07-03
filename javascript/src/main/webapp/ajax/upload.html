@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>文件上传</title>
+
+        <style type="text/css">
+            .wrapper { width: 80% ; margin: 30px auto ; border: 1px solid blue ; }
+            .wrapper>* { margin: 30px ; }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <p>使用同步方式上传文件</p>
+            <form action="/file/upload/synchronize"
+                     method="post"
+                     enctype="multipart/form-data">
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="submit" value="上传"> </div>
+            </form>
+        </div>
+
+        <div class="wrapper">
+            <p>使用异步方式上传文件</p>
+            <div class="pseudo-form">
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="button" value="上传"> </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            ( ()=>{
+
+                let btn  = document.querySelector( ".pseudo-form input[type=button]" );
+
+                let listener = function( e ) {
+                    e.preventDefault() ; // 阻止事件的默认行为
+                    e.stopPropagation() ; // 阻止事件传播
+
+                    console.log( btn === e.target );
+
+                    // 获得当前被点击元素的父元素的父元素
+                    let pseudoForm = e.target.parentNode.parentNode ;
+
+                    // 查询 pseudoForm 内部的 所有 <input type="file">
+                    let inputList = pseudoForm.querySelectorAll( "input[type=file]" );
+                    let inputs = Array.from( inputList );
+
+                    const files = new Array();
+
+                    inputs.forEach( ( element ) => {
+                        // 每一个 <input type="file"> 对应的 JavaScript 实例中都有一个 files 属性
+                        // 该属性的值是 FileList 对象(class)的实例(instance) ( 是一个类数组实例 )
+                        let fileList = element.files ;
+                        console.log( fileList ) ;
+                        if( fileList.length > 0 ) {
+                            let file = fileList[0]; // 从 fileList 实例中获取第一个文件对应的 JavaScript 实例
+                            console.log(file);
+                            files.push( file ) ;
+                        }
+                    } );
+
+                    // 1、创建XMLHttpRequest对象(class)的实例(instance)
+                    let $http = new XMLHttpRequest();
+                    // 2、绑定事件监听器
+                    $http.addEventListener( "load" , ()=>{
+                        // 6、处理响应数据
+                        let content = $http.response ;
+                        console.log( content );
+                    } ,  false );
+
+                    // 3、打开连接
+                    $http.open( "POST" , "/file/upload/asynchronous" );
+
+                    // 4、设置POST请求
+                    let formData = new FormData(); // 默认已经将 content-type 设置为 multipart/form-data
+                    // 将 files 数组中所包含的所有的 file 实例添加到 formData 中
+                    files.forEach( (f)=>{
+                        formData.append( f.name , f );
+                    } );
+
+                    // 5、发送请求
+                    $http.send( formData );
+                }
+
+                btn.addEventListener( "click" , listener , false );
+
+            } )();
+        </script>
+
+
+        <div class="wrapper">
+            <p>使用异步方式上传文件</p>
+            <div class="pseudo-form">
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="file" name="upfile" > </div>
+                <div> <input type="file" name="upfile" > </div>
+                <div> <button type="button" >上传</button> </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="/ajax/ajax-upload.js"></script>
+
+        <script type="text/javascript">
+            ( ()=>{
+                let btn = document.querySelector( ".pseudo-form button[type=button]" );
+
+                btn.addEventListener( "click" ,  ( e ) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    const url = "/file/upload/asynchronous" ;
+
+                    const files = new Array();
+
+                    let pseudoForm = e.target.parentNode.parentNode ;
+                    let inputList = pseudoForm.querySelectorAll( "input[type=file]" );
+                    Array.from( inputList ).forEach( ( e ) =>{
+                        let filelist = e.files ;
+                        if( filelist.length > 0 ) {
+                            let file = filelist[ 0 ];
+                            files.push( file );
+                        }
+                    } );
+
+                    const success = ( resp )=>{
+                        console.log( resp );
+                        console.log( "" );
+                        console.log( resp.body );
+                    };
+
+                    X.upload( url , files , success );
+
+                } , false );
+            } )();
+        </script>
+
+    </body>
+</html>

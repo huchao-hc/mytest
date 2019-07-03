@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>作用域</title>
+
+        <script type="text/javascript">
+
+            // 直接书写在  script 元素内部的 变量 和 函数 都属于 全局对象
+
+            function hello() {
+                var username ;
+                console.log( "hello , " , username  );
+                var username = "张三丰" ;
+                console.log( "hello , " , username  );
+            }
+
+            // console.log( username ); // ReferenceError: username is not defined
+            hello();
+            // console.log( username ); // ReferenceError: username is not defined
+            // console.log( window.username );  // ReferenceError: username is not defined
+
+
+        </script>
+
+    </head>
+    <body>
+
+        <div>
+            直接书写在 &lt;script&gt; 和 &lt;/script&gt; 之间的 函数 属于全局对象，称作全局函数。
+        </div>
+
+        <div>
+            为了避免污染全局对象，应该尽可能不要在 全局代码 中 书写 函数 和 变量。
+        </div>
+
+    </body>
+</html>

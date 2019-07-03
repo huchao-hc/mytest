@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let names = [
+                    { "id" : 1001 , "name" : "张三丰" , "gender" : "男" } ,
+                    { "id" : 1000 , "name" : "郭襄" , "gender" : "女" } ,
+                    { "id" : 1002 , "name" : "郭破虏" , "gender" : "男" } ,
+                    { "id" : 2002 , "name" : "风清扬" , "gender" : "男" } ,
+                    { "id" : 3001 , "name" : "殷素素" , "gender" : "女" }
+                ];
+
+                console.log( names );
+                console.log( "" );
+
+                let fn = ( element , index , array ) => {
+                    console.log( index , element , array );
+                    return element.id >= 1000  ; // 每个元素都是一个Object对象(class)的实例(instance)，都有 id 属性
+                };
+
+                let bEvery = names.every( fn );
+                console.log( "" );
+                console.log( bEvery ); // true
+
+                // 每个元素都是一个Object对象(class)的实例(instance)，都有 gender 属性
+                // fn = ( e ) => { return e.gender === "女" ; }
+                fn = e => e.gender === "女" ;
+                bEvery = names.every( fn );
+                console.log( "" );
+                console.log( bEvery ); // false
+
+                let bSome = names.some( fn );
+                console.log( "" );
+                console.log( bSome );
+
+
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+        <h5>arrayInstance.every( fn ) 用于判断数组实例中所有元素是否都满足于 fn 中的判断，如果是就返回true</h5>
+        <h5>arrayInstance.some( fn ) 用于判断数组实例中是否有部分元素满足于 fn 中的判断，如果是就返回true</h5>
+
+    </body>
+</html>

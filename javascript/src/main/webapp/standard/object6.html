@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // 创建一个实例
+                let instance = Object.create( Object.prototype );
+
+                // 使用 JSON 格式声明属性集
+                let properties = {
+                    "id" : { enumerable : true , writable:true , configurable:false , value:1001 } ,
+                    "name" : { enumerable : true , writable:true ,value : "张三丰" } ,
+                    "gender" : { enumerable : true ,writable:true , value : "男" } ,
+                    "age" : { enumerable : true , writable:true , configurable:false , value : 108 }
+                };
+
+                // Object.defineProperties( 实例 , 属性集 ) 用于为指定实例批量定义属性
+                Object.defineProperties( instance , properties );
+
+                for( let name in instance ) {
+                    console.log( name , instance[ name ] );
+                }
+
+                instance.id = 2002 ;
+                instance.name = "张翠山" ;
+                instance.age = 30 ;
+
+                for( let name in instance ) {
+                    console.log( name , instance[ name ] );
+                }
+
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

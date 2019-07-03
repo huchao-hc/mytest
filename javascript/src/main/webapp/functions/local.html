@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>不侵入、不污染全局对象</title>
+
+        <script type="text/javascript">
+            ( function ( w ) {
+
+                console.log( w );
+
+                function add( a , b ) {
+                    return a + b ;
+                }
+
+                let r = add( 100 , -100 );
+                console.log( r );
+
+            } )( window );
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

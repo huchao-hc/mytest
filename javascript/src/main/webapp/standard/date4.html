@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Date </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                /* 上古时期获取毫秒数的做法
+                let date = new Date();
+                let ms = date.getTime() ;
+               */
+
+                let ms = Date.now(); // 获取当前时间对应的毫秒值
+                console.log( ms );
+                console.log( typeof ms );
+
+                // 根据指定的 瞬间 来获取该瞬间对应的毫秒数
+                let u = Date.UTC( 1996 , 4 , 8 , 11 , 45 , 50 , 60 ); // UTC : 协调世界时
+                console.log( u );
+
+                // 将指定字符串描述的日期或时间转换为相应的毫秒值
+                let millis = Date.parse( "1996/05/08" );
+                console.log( millis );
+
+                // 使用 指定的毫秒值 构造一个新的 Date 实例
+                let date = new Date( millis );
+                console.log( date );
+
+                date = new Date( "1997/10/20 23:32:45" );
+                console.log( date );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

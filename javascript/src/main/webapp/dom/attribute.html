@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>修改元素的属性</title>
+
+        <link rel="stylesheet" href="/styles/cells.css">
+        <link rel="stylesheet" href="/styles/shadows.css">
+
+        <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+
+        <style type="text/css" >
+            .first {
+                width: 300px ;
+                margin: 30px auto ;
+                border: 1px solid #a8a8a8;
+                border-radius: 5px ;
+            }
+            .first>span { height: 50px ; line-height: 50px ; }
+            .first>span input[name=password] {
+                width: 94% ;
+                margin-left: 1%;
+                height: 40px ;
+                border: none ;
+                outline: none ;
+            }
+        </style>
+
+    </head>
+    <body>
+
+        <div class="x-row first">
+            <span class="x-cell-11">
+                 <input type="password" name="password" placeholder="请输入密码">
+            </span>
+            <span class="x-cell-1">
+                <i class="fa fa-eye button" ></i>
+            </span>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( ()=>{
+
+            let button = document.querySelector( ".first span .button" );
+
+            if( button ){
+
+                button.addEventListener( "click" , (event)=>{
+                    event.preventDefault();
+
+                    // 获取当前被点击的元素的父元素
+                    let rightSpan = button.parentElement;
+                    // 获得 rightSpan 的前一个元素
+                    let leftSpan = rightSpan.previousElementSibling ;
+                    // 获取 leftSpan 内部的 密码输入框
+                    let input = leftSpan.firstElementChild ;  // leftSpan.querySelector( "input[type=password]" ) ;
+
+                    let t = input.getAttribute( "type" ); // input.type ;
+                    console.log( t );
+                    if( t === "password" ) {
+                        input.setAttribute("type", "text"); // input.type = "text" ;
+
+                        button.classList.remove( "fa-eye" );
+                        button.classList.add( "fa-eye-slash" );
+                    } else {
+                        input.setAttribute("type", "password"); // input.type = "password" ;
+
+                        button.classList.remove( "fa-eye-slash" );
+                        button.classList.add( "fa-eye" );
+                    }
+
+                } , false );
+
+            }
+        } )();
+    </script>
+
+</html>

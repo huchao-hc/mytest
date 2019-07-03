@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>箭头函数</title>
+
+        <script type="text/javascript">
+            ( function () {
+
+                // 将匿名函数赋值给一个变量
+                let add = function ( a , b ,c ) {
+                    console.log( a , b , c );
+                }
+
+                add( 1 , 2 , 3 );
+
+                // (参数1, 参数2, …, 参数N) => { 函数体 }
+                let add2 = ( a , b , c ) => {  console.log( a , b , c ); }
+                add2( 10 , 20 , 30 );
+
+                let add3 = ( a , b , c ) =>  console.log( a , b , c );
+                add3( 100 , 200 , 300 );
+
+                /*
+                let pow = function ( a ) {
+                    console.log( a * a );
+                }
+                */
+
+                // (单一参数) => { 函数体 }
+                // let pow = ( a ) => console.log( a * a );
+
+                // (单一参数) => { 函数体 }
+                let pow = a => console.log( a * a );
+                pow( 5 );
+
+                let showTime = () => console.log( Date.now() );
+                showTime();
+
+                console.log( "" );
+
+                /*
+                let divide = function ( a , b ) {
+                    return a / b ;
+                }
+                */
+
+               // let divide = ( a , b ) => { return  a / b ; }
+               //  当且仅当 函数体中仅有一个返回语句时，必须将 函数体的花括号省略后才能 省略 return 关键字  ( a , b ) =>  a / b
+                // 如果仅仅是省略 return 关键字 却没有去掉 花括号，则什么都不返回  ( a , b ) => { a / b }
+               let divide = ( a , b ) =>  a / b ;
+               console.log( divide( 100 , 2 ) ) ;
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Number </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "测试 Number 的静态函数:" );
+                console.log( "" );
+
+                let x = 100 ;
+                console.log( "x is not a number : " , isNaN( x ) ); // 使用 全局对象 中的 isNaN 函数
+                console.log( "x is not a number : " , Number.isNaN( x ) ); // 使用 Number 对象中的 isNaN 函数
+                console.log( "" );
+
+                console.log( "x is finite : " , isFinite( x ) ); // 使用 全局对象 中的 isFinite 函数
+                console.log( "x is finite : " , Number.isFinite( x ) ); // 使用 Number 对象中的 isFinite 函数
+                console.log( "" );
+
+                let s = "10010" ;
+                let a = parseInt( s , 2 ) ; // 使用 全局对象 的  parseInt 函数
+                console.log( a , typeof( a ) );
+                console.log( "" );
+
+                let b = Number.parseInt( s , 2 ) ; // 使用 Number 对象 的  parseInt 函数
+                console.log( b , typeof( b ) );
+
+                console.log( "" );
+
+                console.log( "x is integer : " , Number.isInteger( x ) );
+                console.log( "x is safe integer : " , Number.isSafeInteger( x ) );
+
+                console.log( "" );
+                console.log( "max value : " , Number.MAX_VALUE );
+                console.log( "min value : " , Number.MIN_VALUE );
+
+                console.log( "" );
+                console.log( "max safe integer : " , Number.MAX_SAFE_INTEGER );
+                console.log( "min safe integer : " , Number.MIN_SAFE_INTEGER );
+
+                let p = Number.MAX_SAFE_INTEGER  ;
+                console.log( p , typeof( p ) );
+
+                let binary = p.toString( 2 ); // auto-boxing : 先将 p 包装成 Number 实例才能使用 toString 函数
+                console.log( typeof( binary ) );
+                console.log( binary );
+                console.log( binary.length );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

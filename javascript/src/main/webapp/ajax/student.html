@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX</title>
+    </head>
+    <body>
+
+        <div class="buttons">
+            <button type="button">获取数据</button>
+        </div>
+
+        <div class="data">
+        </div>
+
+        <p>
+            使用 for ... in 循环 探测 XMLHttpRequest 实例中包含的属性和函数
+        </p>
+
+    </body>
+
+    <script type="text/javascript">
+        ( () => {
+            const btn = document.querySelector( "button[type=button]" );
+
+            btn.addEventListener( "click" , (event)=>{
+                event.preventDefault();
+
+                // 1、创建用于发送请求和接受响应的 XMLHttpRequest 对象(class)的实例(instance)
+                let $http = new XMLHttpRequest();
+
+                console.log( "readyState : " ,  $http.readyState );
+
+                // 2、为已经创建 XMLHttpRequest 实例绑定 readystatechange 事件的事件监听器
+                $http.addEventListener( "readystatechange" , () => {
+                    console.log( "readyState : " ,  $http.readyState );
+                    if( $http.readyState === 4 ) {
+                        // 6、对响应数据进行处理
+                        let responseData = $http.responseText ;
+                        console.log( responseData , typeof( responseData ) );
+                        // 使用 JSON 的parse 方法将文本数据解析为 JavaScript 对象
+                        let stu = JSON.parse( responseData );
+                        console.log( stu.id  , stu.name , stu.gender );
+
+                        let d = document.querySelector( ".data" ) ;
+                        let idDiv = document.createElement( "div" );
+                        idDiv.innerHTML = "id = " + stu.id ;
+                        d.appendChild( idDiv );
+
+                        let nameDiv = document.createElement( "div" );
+                        nameDiv.innerHTML = "name = " + stu.name ;
+                        d.appendChild( nameDiv );
+                    }
+                } , false );
+
+                let method = "post" ;
+                let url = "/get/student" ;
+                // 3、建立连接(以指定的方式打开连接)
+                $http.open( method , url );
+                console.log( "" );
+
+                // 4、设置报头 ( 如果 method 为 post 则需要设置 content-type 报头 )
+                $http.setRequestHeader( "content-type" , "application/x-www-form-urlencoded" );
+
+                // 5、发送请求数据
+                let params = "id=1&name=aniu" ;
+                $http.send( params ); // 如果是 post 请求，则可以通过 send 的参数发送数据，否则不能发送
+
+            } , false );
+
+
+
+        } )();
+    </script>
+</html>

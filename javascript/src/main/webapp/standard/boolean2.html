@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Boolean </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // 当作构造来使用时可以创建 Boolean 对象(class) 的实例(instance) : new Boolean( value )
+                let x = new Boolean( true ) ; // 将 原始值 true 封装到一个 Boolean 实例中
+                console.log( x , typeof( x ) );
+
+                let o = new Object() ;
+                // 如果参数 value 不是布尔值，则会将其转换为布尔值。
+                let y = new Boolean( o );
+                console.log( y , typeof( y ) );
+
+                //  如果省略该参数，或者参数值为 0、-0、null、false、NaN、undefined、或者空字符串（""），则生成的 Boolean 实例的值为 false。
+                let z = new Boolean();
+                console.log( z , typeof( z ) );
+
+                // 自己测试 参数值为 0、-0、null、false、NaN、undefined、或者空字符串（""）的情况
+
+                console.log( "" );
+
+                //  Boolean 对象(class) 首先是个函数，其次是个对象 ( class ) 。因为是个对象(class) 有构造函数 ( constructor )
+
+                // 将 Boolean 当作一个普通的函数来使用时，可以将任意非 boolean 值转换为 boolean 值 : Boolean( value )
+                let first = Boolean() ;
+                console.log( first , typeof( first ) );
+
+                let second = Boolean( -0 ) ;
+                console.log( second , typeof( second ) );
+
+                let third = Boolean( "false" ) ; // 对于 非空字符串 "false" 来说，返回 true
+                console.log( third , typeof( third ) );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

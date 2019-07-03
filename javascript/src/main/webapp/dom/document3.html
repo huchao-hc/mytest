@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DOM : document </title>
+    </head>
+    <body>
+
+
+
+    </body>
+
+    <script type="text/javascript">
+        ( () => {
+
+            console.log( "nodeType : " , document.nodeType );
+            console.log( "nodeName : " , document.nodeName );
+            console.log( "nodeValue : " , document.nodeValue );
+
+            console.log( "" );
+
+            console.log( "firstChild : " , document.firstChild.nodeName );
+            console.log( "lastChild : " , document.lastChild.nodeName );
+
+            console.log( "" );
+
+            console.log( "previousSibling : " , document.previousSibling );
+            console.log( "nextSibling : " , document.nextSibling );
+
+            console.log( "" );
+
+            let childs = document.childNodes ;
+            console.log( childs );
+
+            let array = Array.from( childs );
+
+            array.forEach( e => console.log( e ) ) ;
+
+
+        })();
+    </script>
+</html>

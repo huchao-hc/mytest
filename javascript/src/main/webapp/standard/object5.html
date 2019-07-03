@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Object </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                // 创建一个空实例
+                let o = Object.create( Object.prototype );
+
+                // 使用 JSON 格式声明一个实例用来表示属性的描述信息
+                let descriptor = {
+                    configurable : false ,
+                    enumerable : false ,
+                    writable : false ,
+                    value : "小李飞刀他娘"
+                };
+
+                // Object.defineProperty( 实例名称 , 属性名称 , 属性描述 );
+
+                // 为 指定的实例 定义属性，并指定属性的描述信息
+                Object.defineProperty( o , "name" , descriptor );
+
+                console.log( o );
+
+                console.log( o.hasOwnProperty( "name" ) );
+                console.log( o.propertyIsEnumerable( "name" ) );
+
+                console.log( o.name );
+                o.name = "书生夺命剑" ; // 不能为只读属性赋值
+                console.log( o.name );
+                delete o.name ;
+                console.log( o.name );
+
+
+            })();
+        </script>
+
+    </head>
+    <body>
+
+
+
+    </body>
+</html>

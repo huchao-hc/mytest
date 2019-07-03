@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Function </title>
+
+        <script type="text/javascript">
+            ( ()=>{
+
+                // 用 function 关键字直接声明一个函数
+                // 则这个函数就是 Function 对象(class)的实例(instance)
+               function add( a , b ) {
+                   // 获得当前函数的引用
+                   let callee = arguments.callee ;
+                   console.log( "当前函数: " , callee.name ); // 输出当前函数的名称
+                   // 获取当前函数的调用者
+                   let caller = callee.caller ; // 直接使用 函数名.caller 也可以获取函数调用者
+                   console.log( "当前函数的调用者: " , caller == null ? null : caller.name ); // 输出调用者的名称
+                   return a + b ;
+               }
+
+               // console.dir( add );
+               // console.log( "" );
+               // console.log( add.constructor ); // Function
+
+                function test(){
+                    let result = add( 100 , 200 );
+                    console.log( result );
+                }
+
+                test(); // 调用 test 函数
+
+            } )();
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>AJAX</title>
+    </head>
+    <body>
+
+
+        <div class="buttons">
+            <button type="button">获取数据</button>
+        </div>
+
+        <div class="data">
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        ( ()=>{
+
+            const btn = document.querySelector( "button[type=button]" );
+            const method = "post" ;
+            const url = "/get/student" ;
+
+            let listener = (e) => {
+                e.preventDefault();
+
+                // 1、创建 XMLHttpRequest 对象
+                let $http = new XMLHttpRequest();
+                console.log( $http.readyState , $http.UNSENT );
+
+                let stateListener = ()=>{
+                    console.log( "状态已改变: " , $http.readyState );
+                }
+
+                // 2、对 $http 实例的 readyState 的变化进行监听
+                // $http.addEventListener( "readystatechange" , stateListener , false );
+                $http.onreadystatechange = stateListener ;
+
+                // 3、打开连接
+                $http.open( method , url );
+                console.log( $http.readyState , $http.OPENED );
+
+                let data = null ;
+                // 4、如果是POST方式请求
+                if( method.trim().toLocaleUpperCase() === "POST" ) {
+                    // 需要首先设置请求报头中的 content-type 字段为 application/x-www-form-urlencoded 后
+                    // 才能通过请求体向服务器发送数据
+                    $http.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                    // 如果是POST请求，并期望通过请求体向服务器发送数据，则需要按照特定格式准备数据
+                    data = "id=9527&name=华安&gender=男&married=true";
+                }
+
+                // 5、发送请求数据
+                $http.send( data );
+
+            };
+
+            btn.addEventListener( "click" , listener , false  );
+
+        })();
+    </script>
+</html>

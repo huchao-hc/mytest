@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Date </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+               let date = new Date();
+               console.dir( date );
+               console.log( date.toLocaleString() );
+
+               date.setFullYear( 1996 , 4 , 8 ) ; // 1996 年 5 月 8 号
+               // date.setMonth( 9 , 10 );   // 10 月 10 号
+               date.setHours( 12, 30 , 18 , 100 ) ; // 12hours , 30minutes , 18seconds , 100ms
+               /*
+               date.setFullYear( 1996 );
+               date.setMonth( 9 ); //  鬼子那边月份从 0 开始
+               date.setDate( 10 );
+               date.setHours( 12 );
+               date.setMinutes( 30 );
+               date.setSeconds( 0 );
+               date.setMilliseconds( 0 );
+               */
+
+               console.log( date.toLocaleString() );
+               console.dir( date  , typeof( date ) );
+
+               console.log( "" );
+
+               let pv = date.valueOf(); // 从 date 实例中获取原始值 ( 本质上是个毫秒值 )
+               console.log( pv , typeof pv  );
+
+               let ms = date.getTime(); // 从 date 实例中获取毫秒值
+               console.log( ms , typeof pv  );
+               console.log( "" );
+
+               date.setTime( 0 ); // 修改 date 实例所表示的时间
+               console.log( date.toISOString() );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

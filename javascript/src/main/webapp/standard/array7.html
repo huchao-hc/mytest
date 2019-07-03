@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let nameArray = [ "张三丰" , "风清扬" , "海飞丝" , "风清扬"  ,  "飘柔"  , "成龙" ,  "飘柔" ];
+                console.log( nameArray.toString() );
+
+                console.log( "indexOf( '风清扬' ) : " , nameArray.indexOf( '风清扬' ) );
+                console.log( "lastIndexOf( '风清扬' ) : " , nameArray.lastIndexOf( '风清扬' ) );
+
+                console.log( "" );
+
+                let fn = ( element , index , array ) => {
+                    // console.log( element , index , array );
+                   return element === "风清扬"  ;
+                   // return index > 0 ;
+                } ;
+
+                let name = nameArray.find( fn ); // 寻找满足 fn 中判断条件的第一个元素
+                console.log( name );
+
+                let index = nameArray.findIndex( fn ); // 寻找满足 fn 中判断条件的第一个元素的索引
+                console.log( index );
+
+                console.log( "" );
+
+                let m = nameArray.includes( "风清扬" ); // 从数组实例中第一个元素开始寻找
+                console.log( m );
+
+                m = nameArray.includes( "风清扬" ,  4 ); // 从数组实例中指定位置开始寻找
+                console.log( m );
+
+                let n = nameArray.includes( "霸王" ); // 从数组实例中第一个元素开始寻找
+                console.log( n );
+
+                let array = [ 1 , 2 , 3, 4, 5 , 6 ,7 , 8 , 9 , 10 ];
+                let fun = ( element , index , array ) => {
+                    // console.log( index ,  element );
+                    // return element % 2 == 0 ;
+                    return ( element & 1 ) === 1 ;
+                }
+                let sub = array.filter( fun );
+                console.log( sub );
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

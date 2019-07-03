@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Array </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                let array = [ 100 , 200 , 300 , 400 ];
+                console.log( array , typeof(array) , Array.isArray( array ) ) ;
+
+                let str = array.join( " , " );
+                console.log( str , typeof(str)  , Array.isArray( str ) ) ;
+
+                array.reverse();
+                console.log( array ) ;
+
+                let keys = array.keys();
+                console.log( keys ) ;
+                for( let k of keys ){
+                    console.log( k )
+                }
+
+                let values = array.values();
+                for ( let v of values ){
+                    console.log( v ) ;
+                }
+
+                let entries = array.entries();
+                for( let [key,value] of entries ){
+                    console.log( key , value ) ;
+                }
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+        <h5> arrayInstance.join( separator ) 可以将数组实例中的各个元素合并为一个字符串，并使用指定的分隔符隔开 </h5>
+        <h5> arrayInstance.reverse() 可以将数组实例翻转 </h5>
+        <h5> arrayInstance.keys() 返回包含了所有的索引的迭代器 </h5>
+        <h5> arrayInstance.values() 返回包含了所有的元素的迭代器 </h5>
+        <h5> arrayInstance.entries() 返回包含了所有的索引和元素的迭代器 </h5>
+
+    </body>
+</html>

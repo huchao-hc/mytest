@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>浏览器对象: window</title>
+
+        <script type="text/javascript" >
+            ( function () {
+
+                let count = 0 ;
+                let interval ;
+
+                let handler = () => {
+                    console.log( count , Date.now() ) ;
+                    count++ ;
+                    if( count >= 10 ){
+                        window.clearInterval( interval );
+                    }
+                };
+
+                let period = 1000 ;
+
+                interval = window.setInterval( handler , period );
+                console.log( interval );
+
+            })();
+        </script>
+    </head>
+    <body>
+
+        <h5>setInterval( handler , period ) 用于创建周期任务，handler 表示一个操作，period 表示周期</h5>
+        <h5>clearInterval( interval ) 用于清除一个周期任务</h5>
+
+    </body>
+</html>

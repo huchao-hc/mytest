@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>圆角边框、阴影</title>
+
+        <style type="text/css">
+
+            .first {
+                margin: 15px auto;
+                width: 0px ;
+                height: 0px ;
+                border-top: 100px solid gray ;
+                border-bottom: 100px solid gray ;
+                border-left: 100px solid blue ;
+                border-right: 100px solid blue ;
+            }
+
+            .second {
+                margin: 15px auto;
+                width: 0px ;
+                height: 0px ;
+                border-top: 100px solid transparent ;
+                border-bottom: 100px solid transparent ;
+                border-left: 200px solid blue ;
+                border-right: 0px solid transparent ;
+            }
+
+            .third {
+                border: 2px solid gray ;
+                height: 300px ;
+                width: 300px ;
+                margin: 15px auto ;
+                background: url("yangmou.jpg") no-repeat center ;
+                background-size: cover;
+                border-radius: 50%;
+                box-shadow: 0 0 10px 7px blue;
+            }
+
+            .fourth {
+                margin: 15px auto ;
+                border: 100px solid yellow ;
+                width: 100px ;
+                height: 100px ;
+                border-radius: 50%;
+                box-shadow: 0 0 10px 20px #b0b0b0;
+
+            }
+            .fifth {
+
+                width: 100% ;
+                height: 100% ;
+                border-radius: 50%;
+                box-shadow: 0 0 10px 10px #b0b0b0 inset;
+
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+        <div class="first"></div>
+
+        <div class="second"></div>
+
+        <div class="third"></div>
+
+        <div class="fourth"><div class="fifth"></div></div>
+
+        <h3 align="center">
+            给黄色的圆环 外部 加上 外部阴影。
+        </h3>
+        <h3 align="center">
+            给黄色的圆环 内部 加上 内部阴影。
+        </h3>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>全局对象</title>
+
+        <!-- 指定浏览器标题栏中显示的小图标-->
+        <link rel="icon" href="/icon.jpg" type="image/jpeg">
+
+        <script type="text/javascript">
+            "use strict"; // 使用 "use strict" 指令启用严格模式
+
+            // 直接书写在 script 元素内部的代码属于全局代码 ( 因为这个作用域是最顶层，也是最大的 )
+            console.log( "我是全局代码中的一行代码" );
+            // 在全局代码中(最顶层) 使用 this 关键字 可以表示全局对象 ( instance )
+            console.log( this );
+
+            // 在 客户端 JavaScript 中全局对象(最顶层的对象) 就是 window 对象 ( instance )
+            console.log( window ); // window 属于 BOM ( Browser Object Model )
+
+            // 在全局代码中 this 和 window 是同一个对象
+            console.log( this === window );
+
+        </script>
+
+    </head>
+    <body>
+
+        <h3>在 客户端 JavaScript 中，全局对象就是 浏览器提供的 window 对象( instance ) </h3>
+
+    </body>
+</html>

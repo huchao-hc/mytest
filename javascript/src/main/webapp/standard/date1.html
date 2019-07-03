@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标准对象: Date </title>
+
+        <script type="text/javascript">
+            ( function(){
+
+                console.log( "Date.constructor : " );
+                console.log(  Date.constructor );
+                console.log( "" );
+
+                console.log( "Date.prototype : " );
+                console.log(  Date.prototype );
+                console.log( "" );
+
+                console.log( "Date.prototype.constructor : " );
+                console.log(  Date.prototype.constructor );
+                console.log( "" );
+
+
+                let now = new Date();
+                console.log( now );
+                console.log( typeof( now ) );
+
+                console.log( now.__proto__ );
+
+
+            })();
+        </script>
+
+
+    </head>
+    <body>
+
+    </body>
+</html>

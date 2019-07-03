@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>全局函数</title>
+
+        <script type="text/javascript">
+
+            let ex = "( 5 + 6 * ( 7 - 2 ) - 9 )" ;
+            // 全局函数 eval 用于 评估 某个 表达式的运行结果
+            let value = eval( ex );
+            console.log( ex , " = " + value );
+
+            ex = "[ 10 , 20 , 30 , 40 , 50 ]" ;
+            console.log( typeof( ex ) );
+
+            // 使用 eval 函数将 JSON 格式描述的数组字符串 转换成真正的 数组对象( instance )
+            let array = eval( "(" + ex + ")" );
+            console.log( typeof( array ) );
+            console.log( array );
+
+            for( let i in array ){
+                console.log( i , array[ i ] );
+            }
+
+            ex = "{ id : 100 , name : '张三丰' , gender : '男' }" ;
+            console.log( typeof( ex ) );
+            let map = eval( "(" + ex + ")" );
+            console.log( typeof( map ) );
+            console.log( map );
+
+        </script>
+
+    </head>
+    <body>
+
+    </body>
+</html>
