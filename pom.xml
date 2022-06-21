@@ -25,7 +25,7 @@
     <maven.compiler.target>12</maven.compiler.target>
     <maven.compiler.compilerVersion>12</maven.compiler.compilerVersion>
     <!-- 集中声明版本 -->
-    <jdbc.mysql.driver>8.0.15</jdbc.mysql.driver>
+    <jdbc.mysql.driver>8.0.28</jdbc.mysql.driver>
     <java.servlet.version>4.0.1</java.servlet.version>
   </properties>
 
